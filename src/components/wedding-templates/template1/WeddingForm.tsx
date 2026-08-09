@@ -3,7 +3,6 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { message } from 'antd'
-import api from '@/lib/axios'
 import { A, OLIVE, OLIVE_BG, FONT_SANS, FONT_SERIF, fVariants, fImgVariants, marginConfig, fZoomIn, fSlideLeft, fRotateIn } from './shared'
 
 export function WeddingForm({ d }: { d: any }) {
@@ -21,19 +20,9 @@ export function WeddingForm({ d }: { d: any }) {
     try {
       setIsSubmitting(true)
 
-      if (d.previewMode || d.editMode || !d.weddingCardId) {
-        // Mock request for preview/edit mode
-        await new Promise(resolve => setTimeout(resolve, 800))
-        message.success('Cảm ơn bạn đã xác nhận tham dự! (Chế độ xem trước)')
-      } else {
-        await api.post('/rsvps', {
-          weddingCardId: d.weddingCardId,
-          guestName: d.guestName || 'Bạn Trang và anh Nam',
-          attendance,
-          guestCount
-        })
-        message.success('Cảm ơn bạn đã xác nhận tham dự!')
-      }
+      // Mock request for static site
+      await new Promise(resolve => setTimeout(resolve, 800))
+      message.success('Cảm ơn bạn đã xác nhận tham dự!')
     } catch (error) {
       console.error(error)
       message.error('Có lỗi xảy ra, vui lòng thử lại sau.')

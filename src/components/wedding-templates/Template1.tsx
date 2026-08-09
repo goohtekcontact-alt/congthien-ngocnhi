@@ -49,7 +49,7 @@ export default function Template1({ weddingData }: { weddingData: any }) {
 
   // Xử lý hiệu ứng cuộn bằng cách tác động trực tiếp lên DOM để tránh bị "Freeze" do xung đột
   useEffect(() => {
-    if (!isAutoScrolling || d.editMode) return
+    if (!isAutoScrolling) return
     
     let animationFrameId: number;
 
@@ -76,14 +76,14 @@ export default function Template1({ weddingData }: { weddingData: any }) {
       window.removeEventListener('wheel', stopScroll)
       window.removeEventListener('mousedown', stopScroll)
     }
-  }, [isAutoScrolling, d.editMode])
+  }, [isAutoScrolling])
 
   return (
     <>
       {/* Overlay cửa mở — luôn render trên cùng, tự xóa sau khi animation xong */}
       <RedDoorOpening
         onOpen={handleOpen}
-        skipOpening={!!d.previewMode || !!d.editMode}
+        skipOpening={!!d.previewMode}
         groomName={d.groomInfo?.name || d.groomName || 'Trung Đức'}
         brideName={d.brideInfo?.name || d.brideName || 'Ngọc Thảo'}
         doorColor="#E6F0E3"

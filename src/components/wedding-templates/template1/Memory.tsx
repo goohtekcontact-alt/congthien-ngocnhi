@@ -5,7 +5,7 @@ import { A, OLIVE, FONT_SANS, fVariants, fImgVariants, marginConfig } from './sh
 import { UploadableImage } from '@/components/ui/UploadableImage'
 
 export function Memory({ d }: { d: any }) {
-  const em = !!d.editMode
+  const em = false;
   const photos = d.photos || {}
   const photo = (key: string, fallback: string) => photos[key] || fallback
 
@@ -17,7 +17,7 @@ export function Memory({ d }: { d: any }) {
           alt="memory"
           editMode={em}
           label="Ảnh kỷ niệm"
-          onUploaded={(url) => d?.onFieldChange?.('photos.image6349', url)}
+          onUploaded={(url: any) => d?.onFieldChange?.('photos.image6349', url)}
           style={{ width: '100%' }}
         />
       </motion.div>
@@ -37,7 +37,7 @@ export function Memory({ d }: { d: any }) {
           alt="memory"
           editMode={em}
           label="Ảnh kỷ niệm"
-          onUploaded={(url) => d?.onFieldChange?.('photos.image6354', url)}
+          onUploaded={(url: any) => d?.onFieldChange?.('photos.image6354', url)}
           style={{ width: '100%' }}
         />
       </motion.div>
@@ -65,7 +65,7 @@ export function Memory({ d }: { d: any }) {
           alt="photo"
           editMode={em}
           label="Ảnh kỷ niệm"
-          onUploaded={(url) => d?.onFieldChange?.('photos.image6364', url)}
+          onUploaded={(url: any) => d?.onFieldChange?.('photos.image6364', url)}
           style={{ width: '100%', objectFit: 'contain' }}
         />
       </motion.div>

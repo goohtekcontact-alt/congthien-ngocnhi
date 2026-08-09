@@ -1,20 +1,8 @@
 import Template1 from '@/components/wedding-templates/Template1';
-import dbConnect from '@/lib/db';
-import Wedding from '@/lib/models/Wedding';
 
-export const revalidate = 0; // Disable cache for this page so it updates immediately when DB changes
-
-async function getWeddingData() {
-  await dbConnect();
-  const wedding = await Wedding.findOne({ slug: 'default' }).lean();
-  
-  if (wedding) {
-    return JSON.parse(JSON.stringify(wedding));
-  }
-  
+function getWeddingData() {
   // Default data fallback if DB is empty
   return {
-    editMode: false,
     weddingType: 'bride',
     groomName: 'Giuse Trần Công Thiện',
     brideName: 'Têrêsa Phạm Thị Ngọc Nhi',
@@ -45,12 +33,12 @@ async function getWeddingData() {
   };
 }
 
-export default async function Home({
+export default function Home({
   searchParams,
 }: {
   searchParams: { guestName?: string }
 }) {
-  const templateData = await getWeddingData();
+  const templateData = getWeddingData() as any;
   
   if (searchParams.guestName) {
     templateData.guestName = searchParams.guestName;

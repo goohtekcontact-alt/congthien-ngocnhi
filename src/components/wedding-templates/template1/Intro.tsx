@@ -2,11 +2,8 @@
 
 import { motion } from 'framer-motion'
 import { A, OLIVE, FONT_SANS, FONT_SCRIPT, fVariants, fImgVariants, marginConfig, getMonthNumber, shortName, fSlideLeft, fSlideRight, fZoomIn, fRotateIn } from './shared'
-import { UploadableImage } from '@/components/ui/UploadableImage'
-import { InlineEdit } from '@/components/ui/InlineEdit'
 
 export function Intro({ d }: { d: any }) {
-  const em = !!d.editMode
   const photos = d.photos || {}
   const photo = (key: string, fallback: string) => photos[key] || fallback
 
@@ -43,27 +40,17 @@ export function Intro({ d }: { d: any }) {
             <div style={{ position: 'absolute', bottom: 12, left: 0, right: 0, display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', textAlign: 'center', zIndex: 10, gap: 8 }}>
               <motion.img variants={fRotateIn} custom={1.9} src={A.flowerwithheart} alt="flower" style={{ width: 200, height: 200, objectFit: 'contain', filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.4))' }} />
               <motion.p variants={fSlideLeft} custom={2.0} style={{ fontStyle: 'italic', fontFamily: FONT_SANS, fontSize: 15, color: '#fff', padding: '0 20px', textShadow: '0 1px 4px rgba(0,0,0,0.8)' }}>
-                <InlineEdit
-                  value={d.intro?.description || "It's been a long time, see you at the wedding!"}
-                  editMode={em}
-                  multiline
-                  onChange={v => d?.onFieldChange?.('intro.description', v)}
-                />
+                {d.intro?.description || "It's been a long time, see you at the wedding!"}
               </motion.p>
               <motion.p variants={fSlideRight} custom={2.1} style={{ fontWeight: 700, fontSize: 14, letterSpacing: '0.2em', color: '#fff', textShadow: '0 1px 4px rgba(0,0,0,0.8)' }}>
-                <InlineEdit value={d.dateText || `${day}.${month}.${year}`} editMode={em} onChange={v => d?.onFieldChange?.('dateText', v)} />
+                {d.dateText || `${day}.${month}.${year}`}
               </motion.p>
             </div>
             {/* Background couple photo */}
-            <UploadableImage
+            <img
               src={photo('image6367', d.coupleImage || A.image12)}
               alt="The Happy Couple"
-              editMode={em}
-              label="Ảnh nền"
-              onUploaded={(url) => d?.onFieldChange?.('photos.image6367', url)}
               style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top' }}
-              wrapperStyle={{ position: 'absolute', inset: 0, width: '100%', height: '100%' }}
-              overlayStyle={{ justifyContent: 'flex-end', paddingBottom: 60 }}
             />
           </div>
         </motion.div>
@@ -79,7 +66,7 @@ export function Intro({ d }: { d: any }) {
         {/* Groom name */}
         <motion.div variants={fSlideRight} initial="hidden" animate="visible" viewport={marginConfig} custom={1.7}
           style={{ width: '100%', textAlign: 'center', fontSize: '2.5rem', fontFamily: FONT_SCRIPT, color: OLIVE, lineHeight: 1.2, marginTop: 16, whiteSpace: 'normal' }}>
-          <InlineEdit value={d.groomName || shortName(d.groomInfo?.name) || 'Trung Đức'} editMode={em} onChange={v => d?.onFieldChange?.('groomName', v)} />
+          {d.groomName || shortName(d.groomInfo?.name) || 'Trung Đức'}
         </motion.div>
 
         {/* Heart divider */}
@@ -89,7 +76,7 @@ export function Intro({ d }: { d: any }) {
         {/* Bride name */}
         <motion.div variants={fSlideLeft} initial="hidden" animate="visible" viewport={marginConfig} custom={1.9}
           style={{ width: '100%', textAlign: 'center', fontSize: '2.5rem', fontFamily: FONT_SCRIPT, color: OLIVE, lineHeight: 1.2, marginBottom: 24, whiteSpace: 'normal' }}>
-          <InlineEdit value={d.brideName || shortName(d.brideInfo?.name) || 'Ngọc Thảo'} editMode={em} onChange={v => d?.onFieldChange?.('brideName', v)} />
+          {d.brideName || shortName(d.brideInfo?.name) || 'Ngọc Thảo'}
         </motion.div>
       </div>
     </div>

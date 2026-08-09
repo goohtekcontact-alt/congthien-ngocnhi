@@ -3,8 +3,6 @@
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { A, OLIVE, OLIVE_BG, OLIVE_BTN, FONT_SANS, FONT_SCRIPT, fVariants, fImgVariants, marginConfig, getMonthNumber, fSlideLeft, fSlideRight, fZoomIn, fRotateIn } from './shared'
-import { UploadableImage } from '@/components/ui/UploadableImage'
-import { InlineEdit } from '@/components/ui/InlineEdit'
 
 const safeParseInt = (str: string, fallback: number) => {
   const match = String(str).match(/\d+/);
@@ -54,7 +52,6 @@ function CountdownTimer({ targetDate }: { targetDate: Date }) {
 }
 
 export function WeddingCard({ d }: { d: any }) {
-  const em = !!d.editMode
   const photos = d.photos || {}
   const photo = (key: string, fallback: string) => photos[key] || fallback
 
@@ -107,14 +104,10 @@ export function WeddingCard({ d }: { d: any }) {
         <motion.div variants={fZoomIn} initial="hidden" whileInView="visible" viewport={marginConfig} custom={0.3}
           style={{ width: '100%', marginBottom: 12 }}>
           <div style={{ position: 'relative', width: '100%', aspectRatio: '4/5', overflow: 'clip', borderRadius: 6, border: '1px solid #f3f4f6', boxShadow: '0 10px 25px rgba(0,0,0,0.15)' }}>
-            <UploadableImage
+            <img
               src={photo('image6346', d.galleryImages?.[0] || A.image1)}
               alt="Couple Portrait"
-              editMode={em}
-              label="Ảnh cặp đôi"
-              onUploaded={(url) => d?.onFieldChange?.('photos.image6346', url)}
               style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-              wrapperStyle={{ width: '100%', height: '100%' }}
             />
           </div>
         </motion.div>
@@ -136,11 +129,7 @@ export function WeddingCard({ d }: { d: any }) {
         {/* Guest name placeholder */}
         <motion.div variants={fImgVariants} initial="hidden" whileInView="visible" viewport={marginConfig} custom={0.2}
           style={{ width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: 96, fontFamily: FONT_SCRIPT, fontSize: '3rem', color: OLIVE, lineHeight: 1.2, textAlign: 'center', margin: '8px 0' }}>
-          <InlineEdit
-            value={d.guestName || 'Bạn Trang và anh Nam'}
-            editMode={em}
-            onChange={v => d?.onFieldChange?.('guestName', v)}
-          />
+          {d.guestName || 'Bạn Trang và anh Nam'}
         </motion.div>
 
         {/* Green event detail card */}
@@ -156,18 +145,14 @@ export function WeddingCard({ d }: { d: any }) {
 
           <div style={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
             <span style={{ fontSize: 14, letterSpacing: '0.2em', marginBottom: 16 }}>
-              <InlineEdit value={d.dateText2 || `${d.date?.time || '11 GIỜ 00'} – ${d.date?.dayName || 'THỨ BẢY'}`} editMode={em} onChange={v => d?.onFieldChange?.('dateText2', v)} />
+              {d.dateText2 || `${d.date?.time || '11 GIỜ 00'} – ${d.date?.dayName || 'THỨ BẢY'}`}
             </span>
             <div style={{ display: 'flex', alignItems: 'center', gap: 16, justifyContent: 'center', width: '100%', flexWrap: 'nowrap' }}>
               <span style={{ fontSize: 16, fontWeight: 500, letterSpacing: '0.05em', whiteSpace: 'nowrap' }}>
-                <InlineEdit 
-                  value={(() => {
-                    const m = d.dateMonthText || d.date?.month || '2';
-                    return m.toLowerCase().includes('tháng') ? m : `Tháng ${m}`;
-                  })()} 
-                  editMode={em} 
-                  onChange={v => d?.onFieldChange?.('dateMonthText', v)} 
-                />
+                {(() => {
+                  const m = d.dateMonthText || d.date?.month || '2';
+                  return m.toLowerCase().includes('tháng') ? m : `Tháng ${m}`;
+                })()}
               </span>
               <div style={{ 
                 border: '1.5px solid rgba(255,255,255,0.7)', 
@@ -181,15 +166,15 @@ export function WeddingCard({ d }: { d: any }) {
                 flexShrink: 0
               }}>
                 <span style={{ fontSize: 52, fontWeight: 700, letterSpacing: '-0.02em', lineHeight: 1 }}>
-                  <InlineEdit value={d.dateDayText || day} editMode={em} onChange={v => d?.onFieldChange?.('dateDayText', v)} />
+                  {d.dateDayText || day}
                 </span>
               </div>
               <span style={{ fontSize: 16, fontWeight: 500, letterSpacing: '0.05em', whiteSpace: 'nowrap' }}>
-                <InlineEdit value={d.dateYearText || `Năm ${year}`} editMode={em} onChange={v => d?.onFieldChange?.('dateYearText', v)} />
+                {d.dateYearText || `Năm ${year}`}
               </span>
             </div>
             <p style={{ marginTop: 32, fontStyle: 'italic', fontSize: 13, fontWeight: 300, opacity: 0.8 }}>
-              <InlineEdit value={d.dateLunarText || `(Nhằm Ngày 22 THÁNG 8 NĂM BÍNH NGỌ)`} editMode={em} onChange={v => d?.onFieldChange?.('dateLunarText', v)} />
+              {d.dateLunarText || `(Nhằm Ngày 22 THÁNG 8 NĂM BÍNH NGỌ)`}
             </p>
             
             <CountdownTimer targetDate={targetDate} />
@@ -201,10 +186,10 @@ export function WeddingCard({ d }: { d: any }) {
           style={{ width: '100%', fontSize: 21, textAlign: 'center', marginBottom: 40 }}>
           <p style={{ fontFamily: FONT_SANS, fontStyle: 'italic', color: OLIVE }}>Tại</p>
           <h3 style={{ fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: OLIVE }}>
-            <InlineEdit  value={d.locationVenueText || d.location?.venue || 'Tân Phong, Bình Xuyên, Vĩnh Phúc'} editMode={em && (d?.inviteType === 'chung')} onChange={v => d?.onFieldChange?.('locationVenueText', v)} />
+            {d.locationVenueText || d.location?.venue || 'Tân Phong, Bình Xuyên, Vĩnh Phúc'}
           </h3>
           <p style={{ fontStyle: 'italic', color: OLIVE, lineHeight: 1.6, maxWidth: 600, margin: '0 auto' }}>
-            <InlineEdit   value={d.locationAddressText || d.location?.address || 'Số nhà 06, đường Bầu Rậm, TDP. Thích Chung, Bình Xuyên, Vĩnh Phúc'} editMode={em} onChange={v => d?.onFieldChange?.('locationAddressText', v)} multiline />
+            {d.locationAddressText || d.location?.address || 'Số nhà 06, đường Bầu Rậm, TDP. Thích Chung, Bình Xuyên, Vĩnh Phúc'}
           </p>
         </motion.div>
 
@@ -224,54 +209,24 @@ export function WeddingCard({ d }: { d: any }) {
             </div>
 
             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: 4, width: '100%', overflow: 'visible', marginLeft: -100 }}>
-              <a href={em ? undefined : (d.mapUrl || d.mapLink || 'https://maps.google.com/maps?q=S%E1%BB%91+nh%C3%A0+06,+%C4%91%C6%B0%E1%BB%9Dng+B%E1%BA%A7u+R%E1%BA%ADm,+TDP.+Th%C3%ADch+Chung,+B%C3%ACnh+Xuy%C3%AAn,+V%C4%A9nh+Ph%C3%BAc')} target={em ? undefined : "_blank"} style={{ fontStyle: 'italic', color: OLIVE, textDecoration: 'none', pointerEvents: em ? 'none' : 'auto', whiteSpace: 'nowrap' }}>
+              <a href={d.mapUrl || d.mapLink || 'https://maps.google.com/maps?q=S%E1%BB%91+nh%C3%A0+06,+%C4%91%C6%B0%E1%BB%9Dng+B%E1%BA%A7u+R%E1%BA%ADm,+TDP.+Th%C3%ADch+Chung,+B%C3%ACnh+Xuy%C3%AAn,+V%C4%A9nh+Ph%C3%BAc'} target="_blank" style={{ fontStyle: 'italic', color: OLIVE, textDecoration: 'none', whiteSpace: 'nowrap' }}>
                 {directionLabel}
               </a>
-              {em && (
-                <div style={{ width: '100%', padding: '0 20px' }}>
-                  <InlineEdit
-                    value={d.mapUrl || d.mapLink || 'https://maps.google.com/maps?q=S%E1%BB%91%20nh%C3%A0%2006%2C%20%C4%91%C6%B0%E1%BB%9Dng%20B%E1%BA%A7u%20R%E1%BA%ADm%2C%20TDP%20Th%C3%ADch%20Chung%2C%20B%C3%ACnh%20Xuy%C3%AAn%2C%20V%C4%A9nh%20Ph%C3%BAc'}
-                    placeholder="Dán mã nhúng Bản đồ (iframe) vào đây..."
-                    editMode={em}
-                    multiline
-                    onChange={(val) => d?.onFieldChange?.('mapUrl', val)}
-                    style={{ fontSize: 11, textAlign: 'center', color: '#666', background: 'rgba(255,255,255,0.8)', padding: '6px', borderRadius: '6px', display: 'block', width: '100%', maxHeight: '60px', overflowY: 'auto', border: '1px dashed #ccc', wordBreak: 'break-all', whiteSpace: 'normal' }}
-                  />
-                </div>
-              )}
             </div>
 
             {(weddingType === 'all' || weddingType === 'groom') && (
               <div style={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 4 }}>
-                <a href={em ? undefined : `tel:${d.groomPhone || d.groomInfo?.phone || ''}`} className="text-xs sm:text-sm" style={{ display: 'block', background: OLIVE_BTN, color: '#fff', padding: 6, borderRadius: 9999, textTransform: 'uppercase', letterSpacing: '0.05em', fontFamily: FONT_SANS, textAlign: 'center', textDecoration: 'none', boxShadow: '0 2px 4px rgba(0,0,0,0.15)', width: '100%', maxWidth: 200, pointerEvents: em ? 'none' : 'auto', whiteSpace: 'nowrap' }}>
+                <a href={`tel:${d.groomPhone || d.groomInfo?.phone || ''}`} className="text-xs sm:text-sm" style={{ display: 'block', background: OLIVE_BTN, color: '#fff', padding: 6, borderRadius: 9999, textTransform: 'uppercase', letterSpacing: '0.05em', fontFamily: FONT_SANS, textAlign: 'center', textDecoration: 'none', boxShadow: '0 2px 4px rgba(0,0,0,0.15)', width: '100%', maxWidth: 200, whiteSpace: 'nowrap' }}>
                   Gọi ngay chú rể
                 </a>
-                {em && (
-                  <InlineEdit
-                    value={d.groomPhone || d.groomInfo?.phone || ''}
-                    placeholder="Nhập SĐT chú rể..."
-                    editMode={em}
-                    onChange={(val) => d?.onFieldChange?.('groomPhone', val)}
-                    style={{ fontSize: 14, textAlign: 'center', color: OLIVE }}
-                  />
-                )}
               </div>
             )}
 
             {(weddingType === 'all' || weddingType === 'bride') && (
               <div style={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 4 }}>
-                <a href={em ? undefined : `tel:${d.bridePhone || d.brideInfo?.phone || ''}`} className="text-xs sm:text-sm" style={{ display: 'block', background: OLIVE_BTN, color: '#fff', padding: 6, borderRadius: 9999, textTransform: 'uppercase', letterSpacing: '0.05em', fontFamily: FONT_SANS, textAlign: 'center', textDecoration: 'none', boxShadow: '0 2px 4px rgba(0,0,0,0.15)', width: '100%', maxWidth: 200, pointerEvents: em ? 'none' : 'auto', whiteSpace: 'nowrap' }}>
+                <a href={`tel:${d.bridePhone || d.brideInfo?.phone || ''}`} className="text-xs sm:text-sm" style={{ display: 'block', background: OLIVE_BTN, color: '#fff', padding: 6, borderRadius: 9999, textTransform: 'uppercase', letterSpacing: '0.05em', fontFamily: FONT_SANS, textAlign: 'center', textDecoration: 'none', boxShadow: '0 2px 4px rgba(0,0,0,0.15)', width: '100%', maxWidth: 200, whiteSpace: 'nowrap' }}>
                   Gọi ngay cô dâu
                 </a>
-                {em && (
-                  <InlineEdit
-                    value={d.bridePhone || d.brideInfo?.phone || ''}
-                    placeholder="Nhập SĐT cô dâu..."
-                    editMode={em}
-                    onChange={(val) => d?.onFieldChange?.('bridePhone', val)}
-                    style={{ fontSize: 14, textAlign: 'center', color: OLIVE }}
-                  />
-                )}
               </div>
             )}
           </div>
@@ -300,8 +255,7 @@ export function WeddingCard({ d }: { d: any }) {
               if (mapSrc) {
                 return (
                   <div style={{ width: '100%', height: '100%', position: 'relative' }}>
-                    {em && <div style={{ position: 'absolute', inset: 0, zIndex: 10, cursor: 'not-allowed' }} />}
-                    <iframe src={mapSrc} width="100%" height="100%" style={{ border: 0, pointerEvents: em ? 'none' : 'auto' }} allowFullScreen={true} loading="lazy" referrerPolicy="no-referrer-when-downgrade" />
+                    <iframe src={mapSrc} width="100%" height="100%" style={{ border: 0 }} allowFullScreen={true} loading="lazy" referrerPolicy="no-referrer-when-downgrade" />
                   </div>
                 );
               }
@@ -314,7 +268,7 @@ export function WeddingCard({ d }: { d: any }) {
                 />
               );
 
-              if (!em && mapStr.startsWith('http') && !isIframe) {
+              if (mapStr.startsWith('http') && !isIframe) {
                 return <a href={mapStr} target="_blank" rel="noreferrer" style={{ display: 'block', width: '100%', height: '100%' }}>{mapContent}</a>;
               }
 

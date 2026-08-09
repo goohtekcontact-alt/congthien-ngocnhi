@@ -6,7 +6,7 @@ import { UploadableImage } from '@/components/ui/UploadableImage'
 import { InlineEdit } from '@/components/ui/InlineEdit'
 
 export function CoupleInfo({ d }: { d: any }) {
-  const em = !!d.editMode
+  const em = false;
   const photos = d.photos || {}
   const photo = (key: string, fallback: string) => photos[key] || fallback
 
@@ -42,7 +42,7 @@ export function CoupleInfo({ d }: { d: any }) {
             alt="Couple"
             editMode={em}
             label="Ảnh cặp đôi"
-            onUploaded={(url) => d?.onFieldChange?.('photos.image6347', url)}
+            onUploaded={(url: any) => d?.onFieldChange?.('photos.image6347', url)}
             style={{ borderRadius: '9999px 9999px 0 0', width: 450, maxWidth: '100%', objectFit: 'contain' }}
             wrapperStyle={{ width: 450, maxWidth: '100%' }}
           />
@@ -56,7 +56,7 @@ export function CoupleInfo({ d }: { d: any }) {
                 alt="Groom"
                 editMode={em}
                 label="Ảnh chú rể"
-                onUploaded={(url) => d?.onFieldChange?.('photos.image6350', url)}
+                onUploaded={(url: any) => d?.onFieldChange?.('photos.image6350', url)}
                 style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                 wrapperStyle={{ width: '100%', height: '100%' }}
               />
@@ -67,7 +67,7 @@ export function CoupleInfo({ d }: { d: any }) {
                 alt="Bride"
                 editMode={em}
                 label="Ảnh cô dâu"
-                onUploaded={(url) => d?.onFieldChange?.('photos.image6352', url)}
+                onUploaded={(url: any) => d?.onFieldChange?.('photos.image6352', url)}
                 style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                 wrapperStyle={{ width: '100%', height: '100%' }}
               />
@@ -78,24 +78,24 @@ export function CoupleInfo({ d }: { d: any }) {
           <div style={{ width: '100%', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16, padding: '0 16px', marginBottom: 32 }}>
             <motion.div variants={fSlideRight} custom={0.6} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
               <div style={{ width: '100%', marginBottom: 4, fontFamily: FONT_SCRIPT, fontSize: '2.5rem', color: OLIVE, lineHeight: 1.2 }}>
-                <InlineEdit value={d.groomName || shortName(d.groomInfo?.name) || 'Trung Đức'} editMode={em} onChange={v => d?.onFieldChange?.('groomName', v)} />
+                <InlineEdit value={d.groomName || shortName(d.groomInfo?.name) || 'Trung Đức'} editMode={em} onChange={(v: any) => d?.onFieldChange?.('groomName', v)} />
               </div>
               <div style={{ background: OLIVE_BG, color: '#fff', fontSize: 13, width: '100%', borderRadius: 24, textAlign: 'center', boxShadow: '0 2px 4px rgba(0,0,0,0.12)', padding: '6px 4px', whiteSpace: 'nowrap' }}>
-                <p>Bố: <InlineEdit value={d.groomInfo?.fatherName || 'Đặng Văn Đạt'} editMode={em} onChange={v => d?.onFieldChange?.('groomInfo.fatherName', v)} /></p>
-                <p>Mẹ: <InlineEdit value={d.groomInfo?.motherName || 'Phạm Thị Luyến'} editMode={em} onChange={v => d?.onFieldChange?.('groomInfo.motherName', v)} /></p>
+                <p>Bố: <InlineEdit value={d.groomInfo?.fatherName || 'Đặng Văn Đạt'} editMode={em} onChange={(v: any) => d?.onFieldChange?.('groomInfo.fatherName', v)} /></p>
+                <p>Mẹ: <InlineEdit value={d.groomInfo?.motherName || 'Phạm Thị Luyến'} editMode={em} onChange={(v: any) => d?.onFieldChange?.('groomInfo.motherName', v)} /></p>
               </div>
-              <p style={{ fontStyle: 'italic', fontSize: 16, color: OLIVE, marginTop: 4 }}>(<InlineEdit value={d.groomInfo?.city || d.groomInfo?.hometown || 'TP. Hải Phòng'} editMode={em} onChange={v => d?.onFieldChange?.('groomInfo.city', v)} />)</p>
+              <p style={{ fontStyle: 'italic', fontSize: 16, color: OLIVE, marginTop: 4 }}>(<InlineEdit value={d.groomInfo?.city || d.groomInfo?.hometown || 'TP. Hải Phòng'} editMode={em} onChange={(v: any) => d?.onFieldChange?.('groomInfo.city', v)} />)</p>
             </motion.div>
 
             <motion.div variants={fSlideLeft} custom={0.7} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
               <div style={{ width: '100%', marginBottom: 4, fontFamily: FONT_SCRIPT, fontSize: '2.5rem', color: OLIVE, lineHeight: 1.2 }}>
-                <InlineEdit value={d.brideName || shortName(d.brideInfo?.name) || 'Ngọc Thảo'} editMode={em} onChange={v => d?.onFieldChange?.('brideName', v)} />
+                <InlineEdit value={d.brideName || shortName(d.brideInfo?.name) || 'Ngọc Thảo'} editMode={em} onChange={(v: any) => d?.onFieldChange?.('brideName', v)} />
               </div>
               <div style={{ background: OLIVE_BG, color: '#fff', fontSize: 13, width: '100%', borderRadius: 24, textAlign: 'center', boxShadow: '0 2px 4px rgba(0,0,0,0.12)', padding: '6px 4px', whiteSpace: 'nowrap' }}>
-                <p>Bố: <InlineEdit value={d.brideInfo?.fatherName || 'Nguyễn Văn Thuẫn'} editMode={em} onChange={v => d?.onFieldChange?.('brideInfo.fatherName', v)} /></p>
-                <p>Mẹ: <InlineEdit value={d.brideInfo?.motherName || 'Nguyễn Thị Phượng'} editMode={em} onChange={v => d?.onFieldChange?.('brideInfo.motherName', v)} /></p>
+                <p>Bố: <InlineEdit value={d.brideInfo?.fatherName || 'Nguyễn Văn Thuẫn'} editMode={em} onChange={(v: any) => d?.onFieldChange?.('brideInfo.fatherName', v)} /></p>
+                <p>Mẹ: <InlineEdit value={d.brideInfo?.motherName || 'Nguyễn Thị Phượng'} editMode={em} onChange={(v: any) => d?.onFieldChange?.('brideInfo.motherName', v)} /></p>
               </div>
-              <p style={{ fontStyle: 'italic', fontSize: 16, color: OLIVE, marginTop: 4 }}>(<InlineEdit value={d.brideInfo?.city || d.brideInfo?.hometown || 'TP. Hà Nội'} editMode={em} onChange={v => d?.onFieldChange?.('brideInfo.city', v)} />)</p>
+              <p style={{ fontStyle: 'italic', fontSize: 16, color: OLIVE, marginTop: 4 }}>(<InlineEdit value={d.brideInfo?.city || d.brideInfo?.hometown || 'TP. Hà Nội'} editMode={em} onChange={(v: any) => d?.onFieldChange?.('brideInfo.city', v)} />)</p>
             </motion.div>
           </div>
 
@@ -106,7 +106,7 @@ export function CoupleInfo({ d }: { d: any }) {
                 value={d.story1 || 'Mình gặp nhau vào mùa nắng đẹp nhất của năm. Ngày 30\ntháng 3 - bình yên như bao ngày khác,\nChỉ là từ hôm đó, thế giới của hai đứa bỗng có thêm một\nngười để chờ, để nhớ, để thương.'}
                 editMode={em}
                 multiline
-                onChange={v => d?.onFieldChange?.('story1', v)}
+                onChange={(v: any) => d?.onFieldChange?.('story1', v)}
                 style={{ textAlign: 'center', width: '100%', display: 'block', whiteSpace: 'pre-line' }}
               />
             </p>
@@ -133,7 +133,7 @@ export function CoupleInfo({ d }: { d: any }) {
             value={d.story2 || 'Ba tháng sau, chúng mình chẳng cần lí do gì lớn lao.\nChỉ biết là muốn cùng nhau đi hết đoạn đường còn lại. Và thế là,\nmột đám cưới ra đời - tròn tám tháng kể từ ngày bắt đầu yêu'}
             editMode={em}
             multiline
-            onChange={v => d?.onFieldChange?.('story2', v)}
+            onChange={(v: any) => d?.onFieldChange?.('story2', v)}
             style={{ textAlign: 'center', width: '100%', display: 'block', whiteSpace: 'pre-line' }}
           />
         </motion.div>
@@ -144,7 +144,7 @@ export function CoupleInfo({ d }: { d: any }) {
             alt="couple"
             editMode={em}
             label="Ảnh cặp đôi"
-            onUploaded={(url) => d?.onFieldChange?.('photos.image6348', url)}
+            onUploaded={(url: any) => d?.onFieldChange?.('photos.image6348', url)}
             style={{ borderRadius: '9999px 9999px 0 0', width: '100%', objectFit: 'contain' }}
           />
         </motion.div>
@@ -167,7 +167,7 @@ export function CoupleInfo({ d }: { d: any }) {
             alt="photo"
             editMode={em}
             label="Ảnh kỷ niệm"
-            onUploaded={(url) => d?.onFieldChange?.('photos.image6353', url)}
+            onUploaded={(url: any) => d?.onFieldChange?.('photos.image6353', url)}
             style={{ width: '100%' }}
           />
         </motion.div>
@@ -177,7 +177,7 @@ export function CoupleInfo({ d }: { d: any }) {
             alt="photo"
             editMode={em}
             label="Ảnh kỷ niệm"
-            onUploaded={(url) => d?.onFieldChange?.('photos.image6366', url)}
+            onUploaded={(url: any) => d?.onFieldChange?.('photos.image6366', url)}
             style={{ width: '100%' }}
           />
         </motion.div>
