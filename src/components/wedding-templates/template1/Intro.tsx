@@ -1,0 +1,97 @@
+'use client'
+
+import { motion } from 'framer-motion'
+import { A, OLIVE, FONT_SANS, FONT_SCRIPT, fVariants, fImgVariants, marginConfig, getMonthNumber, shortName, fSlideLeft, fSlideRight, fZoomIn, fRotateIn } from './shared'
+import { UploadableImage } from '@/components/ui/UploadableImage'
+import { InlineEdit } from '@/components/ui/InlineEdit'
+
+export function Intro({ d }: { d: any }) {
+  const em = !!d.editMode
+  const photos = d.photos || {}
+  const photo = (key: string, fallback: string) => photos[key] || fallback
+
+  const day = d.date?.dayNumber || '03'
+  const month = String(getMonthNumber(d.date?.month)).padStart(2, '0')
+  const year = d.date?.year || '2026'
+
+  return (
+    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+      <div style={{ position: 'relative', width: '100%', maxWidth: 450, display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '48px 24px' }}>
+
+        {/* YOU ARE / THE LOVE OF / MY LIFE */}
+        <motion.div variants={fSlideLeft} initial="hidden" animate="visible" viewport={marginConfig} custom={1.6}
+          style={{ width: 480, maxWidth: '100%', display: 'flex', justifyContent: 'space-between', fontSize: 18, letterSpacing: '0.3em', fontFamily: FONT_SANS, color: OLIVE }}>
+          <span>{d.intro?.title1 || 'YOU ARE'}</span>
+          <span>{d.intro?.title2 || 'THE LOVE OF'}</span>
+          <span>{d.intro?.title3 || 'MY LIFE'}</span>
+        </motion.div>
+
+        {/* WE GOT MARRIED text image */}
+        <motion.div variants={fSlideRight} initial="hidden" animate="visible" viewport={marginConfig} custom={1.7}
+          style={{ position: 'relative', width: 520, maxWidth: '100%', height: 96, marginBottom: 24 }}>
+          <motion.img variants={fVariants} custom={1.8} src={A.gotmarried} alt="We Got Married" style={{ objectFit: 'contain', position: 'relative', top: 40, width: '100%', height: '100%' }} />
+        </motion.div>
+
+        {/* Main hero photo (rounded top) */}
+        <motion.div variants={fZoomIn} initial="hidden" animate="visible" viewport={marginConfig} custom={1.8}
+          style={{ width: '100%', padding: '0 16px', marginBottom: 40 }}>
+          <div style={{ position: 'relative', width: '100%', aspectRatio: '4/7', overflow: 'clip', borderRadius: '9999px 9999px 0 0', border: '1px solid #f3f4f6', boxShadow: '0 1px 3px rgba(0,0,0,0.08)' }}>
+            {/* Background gradient for readability */}
+            <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: '40%', background: 'linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 100%)', zIndex: 5, pointerEvents: 'none' }} />
+            
+            {/* Overlay content */}
+            <div style={{ position: 'absolute', bottom: 12, left: 0, right: 0, display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', textAlign: 'center', zIndex: 10, gap: 8 }}>
+              <motion.img variants={fRotateIn} custom={1.9} src={A.flowerwithheart} alt="flower" style={{ width: 200, height: 200, objectFit: 'contain', filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.4))' }} />
+              <motion.p variants={fSlideLeft} custom={2.0} style={{ fontStyle: 'italic', fontFamily: FONT_SANS, fontSize: 15, color: '#fff', padding: '0 20px', textShadow: '0 1px 4px rgba(0,0,0,0.8)' }}>
+                <InlineEdit
+                  value={d.intro?.description || "It's been a long time, see you at the wedding!"}
+                  editMode={em}
+                  multiline
+                  onChange={v => d?.onFieldChange?.('intro.description', v)}
+                />
+              </motion.p>
+              <motion.p variants={fSlideRight} custom={2.1} style={{ fontWeight: 700, fontSize: 14, letterSpacing: '0.2em', color: '#fff', textShadow: '0 1px 4px rgba(0,0,0,0.8)' }}>
+                <InlineEdit value={d.dateText || `${day}.${month}.${year}`} editMode={em} onChange={v => d?.onFieldChange?.('dateText', v)} />
+              </motion.p>
+            </div>
+            {/* Background couple photo */}
+            <UploadableImage
+              src={photo('image6367', d.coupleImage || A.image12)}
+              alt="The Happy Couple"
+              editMode={em}
+              label="Ảnh nền"
+              onUploaded={(url) => d?.onFieldChange?.('photos.image6367', url)}
+              style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top' }}
+              wrapperStyle={{ position: 'absolute', inset: 0, width: '100%', height: '100%' }}
+              overlayStyle={{ justifyContent: 'flex-end', paddingBottom: 60 }}
+            />
+          </div>
+        </motion.div>
+
+        {/* GROOM | BRIDE labels */}
+        <motion.div variants={fSlideLeft} initial="hidden" animate="visible" viewport={marginConfig} custom={1.6}
+          style={{ width: '100%', maxWidth: 320, display: 'flex', alignItems: 'center', justifyContent: 'space-between', borderTop: '1px solid #4b5563', borderBottom: '1px solid #4b5563', padding: '12px 0', marginBottom: 24 }}>
+          <span style={{ flex: 1, textAlign: 'center', fontSize: 20, letterSpacing: '0.4em', color: OLIVE }}>GROOM</span>
+          <div style={{ width: 1, height: 16, background: '#4b5563', margin: '0 8px' }} />
+          <span style={{ flex: 1, textAlign: 'center', fontSize: 20, letterSpacing: '0.4em', color: OLIVE }}>BRIDE</span>
+        </motion.div>
+
+        {/* Groom name */}
+        <motion.div variants={fSlideRight} initial="hidden" animate="visible" viewport={marginConfig} custom={1.7}
+          style={{ width: '100%', textAlign: 'center', fontSize: '2.5rem', fontFamily: FONT_SCRIPT, color: OLIVE, lineHeight: 1.2, marginTop: 16, whiteSpace: 'normal' }}>
+          <InlineEdit value={d.groomName || shortName(d.groomInfo?.name) || 'Trung Đức'} editMode={em} onChange={v => d?.onFieldChange?.('groomName', v)} />
+        </motion.div>
+
+        {/* Heart divider */}
+        <motion.img variants={fZoomIn} initial="hidden" animate="visible" viewport={marginConfig} custom={1.8}
+          src={A.heartwithline} alt="divider" style={{ width: 72, objectFit: 'contain', margin: '16px 0' }} />
+
+        {/* Bride name */}
+        <motion.div variants={fSlideLeft} initial="hidden" animate="visible" viewport={marginConfig} custom={1.9}
+          style={{ width: '100%', textAlign: 'center', fontSize: '2.5rem', fontFamily: FONT_SCRIPT, color: OLIVE, lineHeight: 1.2, marginBottom: 24, whiteSpace: 'normal' }}>
+          <InlineEdit value={d.brideName || shortName(d.brideInfo?.name) || 'Ngọc Thảo'} editMode={em} onChange={v => d?.onFieldChange?.('brideName', v)} />
+        </motion.div>
+      </div>
+    </div>
+  )
+}
