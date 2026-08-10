@@ -1,3 +1,4 @@
+import { Metadata, ResolvingMetadata } from 'next';
 import Template1 from '@/components/wedding-templates/Template1';
 import { guestMap } from '@/lib/guests';
 
@@ -52,6 +53,36 @@ function getWeddingData() {
     },
     bankInfo: [],
   };
+}
+
+export async function generateMetadata(
+  { params }: { params: { guestSlug: string } },
+  parent: ResolvingMetadata
+): Promise<Metadata> {
+  const guestName = guestMap[params.guestSlug] || 'Quý khách';
+  const title = `Thiệp cưới Công Thiện ❤️ Ngọc Nhi - Kính mời ${guestName}`;
+  const description = `Thân mời ${guestName} đến chung vui và chứng kiến khoảnh khắc hạnh phúc nhất trong ngày trọng đại của Công Thiện & Ngọc Nhi. Sự hiện diện của bạn là niềm vinh hạnh lớn lao cho gia đình chúng tôi!`;
+  
+  return {
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+      url: `https://congthien-ngocnhi.vercel.app/${params.guestSlug}`,
+      siteName: 'Thiệp cưới Công Thiện & Ngọc Nhi',
+      images: [
+        {
+          url: 'https://congthien-ngocnhi.vercel.app/bride_groom/4.webp',
+          width: 1200,
+          height: 630,
+          alt: 'Thiệp cưới Công Thiện & Ngọc Nhi',
+        },
+      ],
+      locale: 'vi_VN',
+      type: 'website',
+    },
+  }
 }
 
 export default function GuestPage({

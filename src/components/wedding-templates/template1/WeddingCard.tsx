@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
-import { A, OLIVE, OLIVE_BG, OLIVE_BTN, FONT_SANS, FONT_SCRIPT, fVariants, fImgVariants, marginConfig, getMonthNumber, fSlideLeft, fSlideRight, fZoomIn, fRotateIn } from './shared'
+import { A, OLIVE, OLIVE_BG, OLIVE_BTN, FONT_SANS, FONT_SCRIPT, FONT_SERIF, fVariants, fImgVariants, marginConfig, getMonthNumber, fSlideLeft, fSlideRight, fZoomIn, fRotateIn } from './shared'
 
 const safeParseInt = (str: string, fallback: number) => {
   const match = String(str).match(/\d+/);
@@ -97,7 +97,7 @@ export function WeddingCard({ d }: { d: any }) {
           style={{ fontSize: 48, fontWeight: 600, letterSpacing: '0.2em', color: OLIVE, marginBottom: 32, textTransform: 'uppercase' }}>WEDDING</motion.h1>
 
         <motion.div variants={fSlideRight} initial="hidden" whileInView="visible" viewport={marginConfig} custom={0.2}
-          style={{ width: '100%', display: 'flex', justifyContent: 'space-between', fontSize: 22, letterSpacing: '0.3em', fontWeight: 300, color: OLIVE, textTransform: 'uppercase', marginBottom: 48 }}>
+          style={{ width: '100%', display: 'flex', justifyContent: 'space-between', fontSize: 14, letterSpacing: '0.15em', fontWeight: 300, color: OLIVE, textTransform: 'uppercase', marginBottom: 48, whiteSpace: 'nowrap' }}>
           <span>FALL IN</span><span>LOVE</span><span>WEDDING</span>
         </motion.div>
 
@@ -143,7 +143,7 @@ export function WeddingCard({ d }: { d: any }) {
             Đến dự buổi tiệc chung vui <br /> cùng gia đình chúng tôi vào lúc
           </h2>
 
-          <div style={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+          <div style={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', fontFamily: FONT_SERIF }}>
             <span style={{ fontSize: 14, letterSpacing: '0.2em', marginBottom: 16 }}>
               {d.dateText2 || `${d.date?.time || '11 GIỜ 00'} – ${d.date?.dayName || 'THỨ BẢY'}`}
             </span>
@@ -205,7 +205,7 @@ export function WeddingCard({ d }: { d: any }) {
         >
           <div style={{ display: 'flex', flexDirection: 'column', flex: 1, minWidth: 0, fontSize: 17, alignItems: 'center', gap: 12, width: '100%', zIndex: 10, marginRight: -40 }}>
             <div style={{ width: '100%', display: 'flex', justifyContent: 'flex-start', marginLeft: -40, marginBottom: -12 }}>
-              <motion.img variants={fSlideLeft} custom={0.6} src={A.arrow} alt="arrow" style={{ width: 120, maxWidth: '100%', objectFit: 'contain', transform: 'translateY(-16px)' }} />
+              <motion.img variants={fSlideLeft} custom={0.6} src={A.arrow} alt="arrow" className="w-[80px] sm:w-[120px]" style={{ maxWidth: '100%', objectFit: 'contain', transform: 'translateY(-16px)' }} />
             </div>
 
             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: 4, width: '100%', overflow: 'visible', marginLeft: -100 }}>

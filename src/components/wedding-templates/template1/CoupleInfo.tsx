@@ -21,7 +21,7 @@ export function CoupleInfo({ d }: { d: any }) {
         <motion.div variants={fSlideRight} initial="hidden" whileInView="visible" viewport={marginConfig} custom={0.1}
           style={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', marginBottom: 20, textAlign: 'center' }}>
           <h1 style={{ fontSize: 60, fontWeight: 200, letterSpacing: '0.2em', color: OLIVE, marginTop: 40, marginBottom: 8 }}>MY LOVER</h1>
-          <p style={{ fontSize: 16, letterSpacing: '0.1em', color: OLIVE, fontWeight: 600, lineHeight: 1.4, fontStyle: 'italic', maxWidth: 500, width: '100%', textAlign: 'center' }}>
+          <p style={{ fontSize: 16, letterSpacing: '0.1em', color: OLIVE, fontWeight: 600, lineHeight: 1.4, fontStyle: 'italic', maxWidth: 500, width: '100%', padding: '0 24px', boxSizing: 'border-box', textAlign: 'center' }}>
             {d.message || (<>
               Gửi đến bạn tấm thiệp cưới đầy yêu thương.<br />
               Những ai nhận được lời mời này đều là những người đặc biệt<br />
@@ -36,20 +36,20 @@ export function CoupleInfo({ d }: { d: any }) {
 
         {/* Couple portrait */}
         <motion.div variants={fZoomIn} initial="hidden" whileInView="visible" viewport={marginConfig} custom={0.2}
-          style={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', marginBottom: 64 }}>
+          style={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', marginBottom: 64, padding: '0 32px', boxSizing: 'border-box' }}>
           <UploadableImage
             src={photo('image6347', d.galleryImages?.[1] || A.image2)}
             alt="Couple"
             editMode={em}
             label="Ảnh cặp đôi"
             onUploaded={(url: any) => d?.onFieldChange?.('photos.image6347', url)}
-            style={{ borderRadius: '9999px 9999px 0 0', width: 450, maxWidth: '100%', objectFit: 'contain' }}
-            wrapperStyle={{ width: 450, maxWidth: '100%' }}
+            style={{ borderRadius: '9999px 9999px 0 0', width: '100%', objectFit: 'cover' }}
+            wrapperStyle={{ width: '100%', maxWidth: 320, aspectRatio: '3/4' }}
           />
           <motion.img variants={fRotateIn} custom={0.3} src={A.twinlaurel} alt="laurel" style={{ marginTop: 20, width: 200, objectFit: 'contain' }} />
 
           {/* Individual photos */}
-          <div style={{ width: '100%', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16, padding: '20px 60px' }}>
+          <div style={{ width: '100%', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12, padding: '20px 0' }}>
             <motion.div variants={fSlideRight} custom={0.4} style={{ position: 'relative', width: '100%', aspectRatio: '4/6', overflow: 'clip', boxShadow: '0 1px 3px rgba(0,0,0,0.08)' }}>
               <UploadableImage
                 src={photo('image6350', d.groomImage || A.image5)}
@@ -75,27 +75,27 @@ export function CoupleInfo({ d }: { d: any }) {
           </div>
 
           {/* Names + Parents */}
-          <div style={{ width: '100%', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16, padding: '0 16px', marginBottom: 32 }}>
-            <motion.div variants={fSlideRight} custom={0.6} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
-              <div style={{ width: '100%', marginBottom: 4, fontFamily: FONT_SCRIPT, fontSize: '2.5rem', color: OLIVE, lineHeight: 1.2 }}>
+          <div style={{ width: '100%', display: 'grid', gridTemplateColumns: 'minmax(0, 1fr) minmax(0, 1fr)', gap: 12, padding: '0', marginBottom: 32 }}>
+            <motion.div variants={fSlideRight} custom={0.6} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', minWidth: 0, overflow: 'hidden' }}>
+              <div style={{ width: '100%', marginBottom: 4, fontFamily: FONT_SCRIPT, fontSize: '1.6rem', color: OLIVE, lineHeight: 1.2, wordWrap: 'break-word' }}>
                 <InlineEdit value={d.groomName || shortName(d.groomInfo?.name) || 'Trung Đức'} editMode={em} onChange={(v: any) => d?.onFieldChange?.('groomName', v)} />
               </div>
-              <div style={{ background: OLIVE_BG, color: '#fff', fontSize: 13, width: '100%', borderRadius: 24, textAlign: 'center', boxShadow: '0 2px 4px rgba(0,0,0,0.12)', padding: '6px 4px', whiteSpace: 'nowrap' }}>
-                <p>Bố: <InlineEdit value={d.groomInfo?.fatherName || 'Đặng Văn Đạt'} editMode={em} onChange={(v: any) => d?.onFieldChange?.('groomInfo.fatherName', v)} /></p>
+              <div style={{ background: OLIVE_BG, color: '#fff', fontSize: 12, width: '100%', borderRadius: 12, textAlign: 'center', boxShadow: '0 2px 4px rgba(0,0,0,0.12)', padding: '6px 4px', whiteSpace: 'normal', lineHeight: 1.4 }}>
+                <p style={{ marginBottom: 4 }}>Bố: <InlineEdit value={d.groomInfo?.fatherName || 'Đặng Văn Đạt'} editMode={em} onChange={(v: any) => d?.onFieldChange?.('groomInfo.fatherName', v)} /></p>
                 <p>Mẹ: <InlineEdit value={d.groomInfo?.motherName || 'Phạm Thị Luyến'} editMode={em} onChange={(v: any) => d?.onFieldChange?.('groomInfo.motherName', v)} /></p>
               </div>
-              <p style={{ fontStyle: 'italic', fontSize: 16, color: OLIVE, marginTop: 4 }}>(<InlineEdit value={d.groomInfo?.city || d.groomInfo?.hometown || 'TP. Hải Phòng'} editMode={em} onChange={(v: any) => d?.onFieldChange?.('groomInfo.city', v)} />)</p>
+              <p style={{ fontStyle: 'italic', fontSize: 14, color: OLIVE, marginTop: 8 }}>(<InlineEdit value={d.groomInfo?.city || d.groomInfo?.hometown || 'TP. Hải Phòng'} editMode={em} onChange={(v: any) => d?.onFieldChange?.('groomInfo.city', v)} />)</p>
             </motion.div>
 
-            <motion.div variants={fSlideLeft} custom={0.7} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
-              <div style={{ width: '100%', marginBottom: 4, fontFamily: FONT_SCRIPT, fontSize: '2.5rem', color: OLIVE, lineHeight: 1.2 }}>
+            <motion.div variants={fSlideLeft} custom={0.7} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', minWidth: 0, overflow: 'hidden' }}>
+              <div style={{ width: '100%', marginBottom: 4, fontFamily: FONT_SCRIPT, fontSize: '1.6rem', color: OLIVE, lineHeight: 1.2, wordWrap: 'break-word' }}>
                 <InlineEdit value={d.brideName || shortName(d.brideInfo?.name) || 'Ngọc Thảo'} editMode={em} onChange={(v: any) => d?.onFieldChange?.('brideName', v)} />
               </div>
-              <div style={{ background: OLIVE_BG, color: '#fff', fontSize: 13, width: '100%', borderRadius: 24, textAlign: 'center', boxShadow: '0 2px 4px rgba(0,0,0,0.12)', padding: '6px 4px', whiteSpace: 'nowrap' }}>
-                <p>Bố: <InlineEdit value={d.brideInfo?.fatherName || 'Nguyễn Văn Thuẫn'} editMode={em} onChange={(v: any) => d?.onFieldChange?.('brideInfo.fatherName', v)} /></p>
+              <div style={{ background: OLIVE_BG, color: '#fff', fontSize: 12, width: '100%', borderRadius: 12, textAlign: 'center', boxShadow: '0 2px 4px rgba(0,0,0,0.12)', padding: '6px 4px', whiteSpace: 'normal', lineHeight: 1.4 }}>
+                <p style={{ marginBottom: 4 }}>Bố: <InlineEdit value={d.brideInfo?.fatherName || 'Nguyễn Văn Thuẫn'} editMode={em} onChange={(v: any) => d?.onFieldChange?.('brideInfo.fatherName', v)} /></p>
                 <p>Mẹ: <InlineEdit value={d.brideInfo?.motherName || 'Nguyễn Thị Phượng'} editMode={em} onChange={(v: any) => d?.onFieldChange?.('brideInfo.motherName', v)} /></p>
               </div>
-              <p style={{ fontStyle: 'italic', fontSize: 16, color: OLIVE, marginTop: 4 }}>(<InlineEdit value={d.brideInfo?.city || d.brideInfo?.hometown || 'TP. Hà Nội'} editMode={em} onChange={(v: any) => d?.onFieldChange?.('brideInfo.city', v)} />)</p>
+              <p style={{ fontStyle: 'italic', fontSize: 14, color: OLIVE, marginTop: 8 }}>(<InlineEdit value={d.brideInfo?.city || d.brideInfo?.hometown || 'TP. Hà Nội'} editMode={em} onChange={(v: any) => d?.onFieldChange?.('brideInfo.city', v)} />)</p>
             </motion.div>
           </div>
 
@@ -151,7 +151,7 @@ export function CoupleInfo({ d }: { d: any }) {
 
         {/* I LOVE YOU section */}
         <motion.div variants={fSlideLeft} initial="hidden" whileInView="visible" viewport={marginConfig} custom={0.5}
-           style={{ lineHeight: 1.4, display: 'flex', flexDirection: 'column', gap: 16, width: '100%', justifyContent: 'center', alignItems: 'center', textAlign: 'center', padding: '80px 0' }}>
+           style={{ lineHeight: 1.4, display: 'flex', flexDirection: 'column', gap: 16, width: '100%', justifyContent: 'center', alignItems: 'center', textAlign: 'center', padding: '80px 24px', boxSizing: 'border-box' }}>
           <h1 style={{ fontSize: 60, fontFamily: FONT_SCRIPT }}>I LOVE YOU</h1>
           <motion.img variants={fRotateIn} custom={0.6} src={A.heartwithline} alt="heart" style={{ width: 75, height: 75, objectFit: 'contain' }} />
           {d.loveQuote || (<>

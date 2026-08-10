@@ -24,9 +24,9 @@ export function WeddingDay({ d }: { d?: any }) {
     if (matchDay) weddingDay = matchDay[1];
   }
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%', maxWidth: 500, margin: '0 auto', fontFamily: FONT_SANS, padding: '48px 24px' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%', maxWidth: 500, margin: '0 auto', fontFamily: FONT_SANS, padding: '48px 16px' }}>
       <motion.div variants={fImgVariants} initial="hidden" whileInView="visible" viewport={marginConfig} custom={0.2}
-        style={{ width: '100%', background: OLIVE_MID, borderRadius: '9999px 9999px 0 0', padding: '80px 32px 48px', display: 'flex', flexDirection: 'column', alignItems: 'center', color: '#fff', boxShadow: '0 4px 6px rgba(0,0,0,0.12)' }}>
+        style={{ width: '100%', background: OLIVE_MID, borderRadius: '9999px 9999px 0 0', padding: '80px 12px 48px', display: 'flex', flexDirection: 'column', alignItems: 'center', color: '#fff', boxShadow: '0 4px 6px rgba(0,0,0,0.12)' }}>
         
         <motion.svg variants={fVariants} custom={0.3} viewBox="0 0 400 180" style={{ width: '100%', maxWidth: 360, overflow: 'visible', marginTop: 32, marginBottom: -64 }}>
           <path id="curve-path" fill="transparent" stroke="none" d="M 30,170 A 170,160 0 0,1 370,170" />
@@ -45,12 +45,12 @@ export function WeddingDay({ d }: { d?: any }) {
            <span style={{ width: 32, height: 1, backgroundColor: 'currentColor' }}></span>
         </div>
 
-        <p style={{ fontFamily: FONT_SERIF, fontSize: '1.05rem', fontStyle: 'italic', lineHeight: 1.65, marginTop: 24, textAlign: 'center', maxWidth: 448 }}>
+        <p style={{ fontFamily: FONT_SERIF, fontSize: '0.9rem', fontStyle: 'italic', lineHeight: 1.65, marginTop: 24, textAlign: 'center', maxWidth: 448 }}>
           Thương một, để sau mỗi năm lại thương lên mười.<br/>
           Em có anh ở trong đời, anh có em, là được rồi
         </p>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(7, 1fr)', rowGap: 24, marginTop: 36, width: '100%', fontFamily: FONT_SERIF, fontSize: '1.1rem', fontWeight: 600, textAlign: 'center' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(7, 1fr)', rowGap: 16, marginTop: 24, width: '100%', fontFamily: FONT_SERIF, fontSize: '1rem', fontWeight: 600, textAlign: 'center' }}>
           {["T2", "T3", "T4", "T5", "T6", "T7", "CN"].map((day) => (
             <span key={day} style={{ textTransform: 'uppercase', letterSpacing: '0.05em' }}>
               {day}
@@ -64,11 +64,11 @@ export function WeddingDay({ d }: { d?: any }) {
                 style={{
                   margin: '0 auto',
                   display: 'flex',
-                  height: 40,
-                  width: 40,
+                  height: 32,
+                  width: 32,
                   alignItems: 'center',
                   justifyContent: 'center',
-                  fontSize: '1.25rem',
+                  fontSize: '1.1rem',
                   position: 'relative'
                 }}
               >
@@ -83,8 +83,8 @@ export function WeddingDay({ d }: { d?: any }) {
           })}
         </div>
 
-        <div style={{ marginTop: 36, fontFamily: FONT_SERIF, textAlign: 'center' }}>
-          <p style={{ fontSize: '1.2rem', fontWeight: 500, lineHeight: 1.4, margin: 0 }}>
+        <div style={{ marginTop: 24, fontFamily: FONT_SERIF, textAlign: 'center' }}>
+          <p style={{ fontSize: '1.05rem', fontWeight: 500, lineHeight: 1.4, margin: 0 }}>
             <InlineEdit value={d?.calendarDateText || 'Thứ Bảy, 03/10/2026'} editMode={em} onChange={(v: any) => d?.onFieldChange?.('calendarDateText', v)} /><br/>
             <InlineEdit value={d?.calendarTimeText || 'Nhằm Ngày 22 THÁNG 8 NĂM BÍNH NGỌ | 11:00 AM'} editMode={em} onChange={(v: any) => d?.onFieldChange?.('calendarTimeText', v)} />
           </p>

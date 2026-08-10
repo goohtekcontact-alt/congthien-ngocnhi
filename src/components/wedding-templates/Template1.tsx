@@ -93,7 +93,7 @@ export default function Template1({ weddingData }: { weddingData: any }) {
         sealSize={135}
       />
 
-      <div style={{ width: '100%', background: 'transparent', display: 'flex', justifyContent: 'center', border: 'none' }}>
+      <div style={{ width: '100%', background: 'transparent', display: 'flex', justifyContent: 'center', border: 'none', overflowX: 'hidden' }}>
       <div
         style={{
           display: 'flex',
@@ -107,6 +107,7 @@ export default function Template1({ weddingData }: { weddingData: any }) {
           backgroundRepeat: 'no-repeat',
           backgroundSize: '100% 100%',
           backgroundPosition: 'center',
+          overflowX: 'hidden',
         }}
       >
 

@@ -17,7 +17,7 @@ export function Intro({ d }: { d: any }) {
 
         {/* YOU ARE / THE LOVE OF / MY LIFE */}
         <motion.div variants={fSlideLeft} initial="hidden" animate="visible" viewport={marginConfig} custom={1.6}
-          style={{ width: 480, maxWidth: '100%', display: 'flex', justifyContent: 'space-between', fontSize: 18, letterSpacing: '0.3em', fontFamily: FONT_SANS, color: OLIVE }}>
+          style={{ width: '100%', display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '4px 12px', fontSize: 14, letterSpacing: '0.15em', fontFamily: FONT_SANS, color: OLIVE, textAlign: 'center' }}>
           <span>{d.intro?.title1 || 'YOU ARE'}</span>
           <span>{d.intro?.title2 || 'THE LOVE OF'}</span>
           <span>{d.intro?.title3 || 'MY LIFE'}</span>
