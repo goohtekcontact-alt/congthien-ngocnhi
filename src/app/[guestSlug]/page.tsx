@@ -1,4 +1,5 @@
 import Template1 from '@/components/wedding-templates/Template1';
+import { guestMap } from '@/lib/guests';
 
 function getWeddingData() {
   // Default data fallback if DB is empty
@@ -47,15 +48,16 @@ function getWeddingData() {
   };
 }
 
-export default function Home({
-  searchParams,
+export default function GuestPage({
+  params,
 }: {
-  searchParams: { guestName?: string }
+  params: { guestSlug: string }
 }) {
   const templateData = getWeddingData() as any;
+  const guestName = guestMap[params.guestSlug];
   
-  if (searchParams.guestName) {
-    templateData.guestName = searchParams.guestName;
+  if (guestName) {
+    templateData.guestName = guestName;
   }
 
   return (
