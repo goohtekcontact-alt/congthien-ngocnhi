@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 
+import { MusicPlayer } from '@/components/ui/MusicPlayer'
 import { Intro } from './template1/Intro'
 import { WeddingCard } from './template1/WeddingCard'
 import { CoupleInfo } from './template1/CoupleInfo'
@@ -118,6 +119,7 @@ export default function Template1({ weddingData }: { weddingData: any }) {
         <WeddingForm d={d} />
       </div>
     </div>
+      <MusicPlayer src="/Ta_la_cua_nhau.mp3" />
     </>
   )
 }

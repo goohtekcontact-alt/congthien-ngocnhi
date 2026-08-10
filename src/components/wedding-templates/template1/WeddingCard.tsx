@@ -84,9 +84,9 @@ export function WeddingCard({ d }: { d: any }) {
       ? 'Tại gia đình nhà gái'
       : 'Tại nhà hàng trống đồng'
 
-  const ceremonyTitle = weddingType === 'bride'
+  const ceremonyTitle = d.ceremony?.title || (weddingType === 'bride'
     ? 'Lễ Vu Quy Được Tổ Chức'
-    : 'Lễ Thành Hôn Được Tổ Chức'
+    : 'Lễ Thành Hôn Được Tổ Chức')
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%', fontFamily: FONT_SANS, color: OLIVE }}>

@@ -16,13 +16,19 @@ function getWeddingData() {
       time: '11:00',
     },
     location: {
-      name: 'Tư gia',
+      venue: 'Tư gia',
       address: 'SN 311, Ấp kinh 8B, Xã Thạnh Đông, Tỉnh An Giang',
     },
+    mapUrl: '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3928.9993242268065!2d105.29097746630075!3d10.016913525308905!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31a0bb941534cb19%3A0x84f55454fa4f60dd!2sGiu%20Duc%20Church!5e0!3m2!1sen!2sus!4v1786362107894!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>',
     events: [
       { time: '09:00', title: 'Thánh Lễ Hôn Phối' },
       { time: '11:00', title: 'Khai Tiệc' },
     ],
+    ceremony: {
+      title: 'Hôn Lễ Cử Hành Vào Lúc',
+      time: '09:00',
+      venue: 'THÁNH ĐƯỜNG GIÁO XỨ GIU ĐỨC – KINH 8B',
+    },
     invitationMsg: 'Sự hiện diện của quý khách là niềm vinh hạnh cho gia đình chúng tôi.',
     parents: {
       groomFather: 'Giuse Trần Công Thạnh',
@@ -56,9 +62,7 @@ export default function GuestPage({
   const templateData = getWeddingData() as any;
   const guestName = guestMap[params.guestSlug];
   
-  if (guestName) {
-    templateData.guestName = guestName;
-  }
+  templateData.guestName = guestName || 'Quý khách';
 
   return (
     <main className="min-h-screen bg-[#F5F3EF]">

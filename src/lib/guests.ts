@@ -63,5 +63,4 @@ export const guestMap: Record<string, string> = {
   "anh-vinh-chi-dieu": "Anh Vĩnh - Chị Diệu",
   "co-mung": "Cô Mừng",
   "co-nga": "Cô Nga",
-  "quy-khach": "Quý Khách",
 };
