@@ -71,14 +71,7 @@ export async function generateMetadata(
       description,
       url: `https://congthien-ngocnhi.vercel.app/${params.guestSlug}`,
       siteName: 'Thiệp cưới Công Thiện & Ngọc Nhi',
-      images: [
-        {
-          url: 'https://congthien-ngocnhi.vercel.app/bride_groom/4.webp',
-          width: 1200,
-          height: 630,
-          alt: 'Thiệp cưới Công Thiện & Ngọc Nhi',
-        },
-      ],
+
       locale: 'vi_VN',
       type: 'website',
     },
