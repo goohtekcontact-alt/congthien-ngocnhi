@@ -204,15 +204,12 @@ export function RedDoorOpening({
       >
         <div 
           className="w-full flex flex-col items-center gap-2 pl-1 pr-9 sm:pl-6 sm:pr-24 md:pl-8 md:pr-32"
-          style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 8 }}
+          style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 8, transform: 'translateY(-110px)' }}
         >
           <p className="text-2xl sm:text-3xl md:text-[2.2rem]" style={{ fontFamily: "'Dancing Script', cursive, serif", color: finalTextColor, textShadow: '0 2px 8px rgba(0,0,0,0.2)', lineHeight: 1.2, textAlign: 'center', wordBreak: 'break-word', whiteSpace: 'normal' }}>
             {groomName}
           </p>
-          <div style={{ width: 60, height: 1, background: `linear-gradient(90deg, transparent, ${GOLD}, transparent)`, opacity: 0.6 }} />
-          <p style={{ fontFamily: "'Playfair Display', serif", fontSize: '0.75rem', color: finalTextColor, letterSpacing: '0.15em', textTransform: 'uppercase', textAlign: 'center', opacity: 0.9 }}>
-            Trân trọng kính mời
-          </p>
+
         </div>
       </motion.div>
 
@@ -231,15 +228,12 @@ export function RedDoorOpening({
       >
         <div 
           className="w-full flex flex-col items-center gap-2 pr-1 pl-9 sm:pr-6 sm:pl-24 md:pr-8 md:pl-32"
-          style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 8 }}
+          style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 8, transform: 'translateY(-110px)' }}
         >
           <p className="text-2xl sm:text-3xl md:text-[2.2rem]" style={{ fontFamily: "'Dancing Script', cursive, serif", color: finalTextColor, textShadow: '0 2px 8px rgba(0,0,0,0.2)', lineHeight: 1.2, textAlign: 'center', wordBreak: 'break-word', whiteSpace: 'normal' }}>
             {brideName}
           </p>
-          <div style={{ width: 60, height: 1, background: `linear-gradient(90deg, transparent, ${GOLD}, transparent)`, opacity: 0.6 }} />
-          <p style={{ fontFamily: "'Playfair Display', serif", fontSize: '0.75rem', color: finalTextColor, letterSpacing: '0.15em', textTransform: 'uppercase', textAlign: 'center', opacity: 0.9 }}>
-            Đến dự đám cưới
-          </p>
+
         </div>
       </motion.div>
 

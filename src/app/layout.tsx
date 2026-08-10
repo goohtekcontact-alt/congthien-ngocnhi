@@ -13,14 +13,7 @@ export const metadata: Metadata = {
     description: 'Trân trọng kính mời quý khách đến chung vui và chứng kiến khoảnh khắc hạnh phúc nhất trong ngày trọng đại của Công Thiện & Ngọc Nhi. Sự hiện diện của quý vị là niềm vinh hạnh lớn lao cho gia đình chúng tôi!',
     url: 'https://congthien-ngocnhi.vercel.app/',
     siteName: 'Thiệp cưới Công Thiện & Ngọc Nhi',
-    images: [
-      {
-        url: 'https://congthien-ngocnhi.vercel.app/bride_groom/4.webp',
-        width: 1200,
-        height: 630,
-        alt: 'Thiệp cưới Công Thiện & Ngọc Nhi',
-      },
-    ],
+
     locale: 'vi_VN',
     type: 'website',
   },
