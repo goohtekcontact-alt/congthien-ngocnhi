@@ -6,12 +6,17 @@ import { motion } from 'framer-motion'
 export function MusicPlayer({ src }: { src: string }) {
   const [isPlaying, setIsPlaying] = useState(false)
   const audioRef = useRef<HTMLAudioElement>(null)
+  const hasStarted = useRef(false)
 
   const togglePlay = () => {
     if (audioRef.current) {
       if (isPlaying) {
         audioRef.current.pause()
       } else {
+        if (!hasStarted.current) {
+          audioRef.current.currentTime = 15;
+          hasStarted.current = true;
+        }
         const playPromise = audioRef.current.play()
         if (playPromise !== undefined) {
           playPromise.catch(() => {
@@ -47,6 +52,10 @@ export function MusicPlayer({ src }: { src: string }) {
         aria-label="Bật nhạc" 
         onClick={() => {
            if (audioRef.current) {
+             if (!hasStarted.current) {
+               audioRef.current.currentTime = 15;
+               hasStarted.current = true;
+             }
              audioRef.current.play().catch(e => console.log('Audio autoplay prevented:', e));
            }
         }} 
