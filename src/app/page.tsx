@@ -31,14 +31,14 @@ function getWeddingData() {
     invitationMsg: 'Sự hiện diện của quý khách là niềm vinh hạnh cho gia đình chúng tôi.',
     parents: {
       groomFather: 'Giuse Trần Công Thạnh',
-      groomMother: 'Maria Trần Thị Ánh Nguyệt (cố mẫu)',
+      groomMother: 'Maria Trần Thị Ánh Nguyệt',
       brideFather: 'Phêrô Phạm Văn Hoàng',
       brideMother: 'Maria Nguyễn Thị Kim Ánh',
     },
     groomInfo: {
       name: 'Giuse Trần Công Thiện',
       fatherName: 'Giuse Trần Công Thạnh',
-      motherName: 'Maria Trần Thị Ánh Nguyệt (cố mẫu)',
+      motherName: 'Maria Trần Thị Ánh Nguyệt',
       city: 'Tân Hội, An Giang',
       address: 'SN 174, Tổ 8, Ấp Tân Long, Xã Tân Hội, Tỉnh An Giang',
     },

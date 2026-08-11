@@ -111,6 +111,7 @@ export function WeddingForm({ d }: { d: any }) {
       </motion.div>
 
       {/* Gift box */}
+      {false && (
       <section style={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
         <h2 style={{ fontSize: 28, letterSpacing: '0.1em', fontWeight: 500, marginBottom: 16 }}>HỘP MỪNG CƯỚI</h2>
         <p style={{ fontStyle: 'italic', fontSize: 14, color: OLIVE, lineHeight: 1.6, maxWidth: 280, marginBottom: 40 }}>
@@ -201,6 +202,7 @@ export function WeddingForm({ d }: { d: any }) {
           )}
         </div>
       </section>
+      )}
       {/* ═══ QR MODAL MỪNG CƯỚI ═══ */}
       {qrModal && (
         <div

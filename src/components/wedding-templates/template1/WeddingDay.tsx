@@ -86,7 +86,7 @@ export function WeddingDay({ d }: { d?: any }) {
         <div style={{ marginTop: 24, fontFamily: FONT_SERIF, textAlign: 'center' }}>
           <p style={{ fontSize: '1.05rem', fontWeight: 500, lineHeight: 1.4, margin: 0 }}>
             <InlineEdit value={d?.calendarDateText || 'Thứ Bảy, 03/10/2026'} editMode={em} onChange={(v: any) => d?.onFieldChange?.('calendarDateText', v)} /><br/>
-            <InlineEdit value={d?.calendarTimeText || 'Nhằm Ngày 22 THÁNG 8 NĂM BÍNH NGỌ | 11:00 AM'} editMode={em} onChange={(v: any) => d?.onFieldChange?.('calendarTimeText', v)} />
+            <InlineEdit value={d?.calendarTimeText || 'Nhằm Ngày 23 THÁNG 8 NĂM BÍNH NGỌ | 11:00 AM'} editMode={em} onChange={(v: any) => d?.onFieldChange?.('calendarTimeText', v)} />
           </p>
         </div>
 

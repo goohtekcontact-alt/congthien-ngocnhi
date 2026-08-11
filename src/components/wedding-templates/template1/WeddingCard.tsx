@@ -174,7 +174,7 @@ export function WeddingCard({ d }: { d: any }) {
               </span>
             </div>
             <p style={{ marginTop: 32, fontStyle: 'italic', fontSize: 13, fontWeight: 300, opacity: 0.8 }}>
-              {d.dateLunarText || `(Nhằm Ngày 22 THÁNG 8 NĂM BÍNH NGỌ)`}
+              {d.dateLunarText || `(Nhằm Ngày 23 THÁNG 8 NĂM BÍNH NGỌ)`}
             </p>
             
             <CountdownTimer targetDate={targetDate} />

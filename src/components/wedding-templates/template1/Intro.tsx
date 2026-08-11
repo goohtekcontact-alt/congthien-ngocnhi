@@ -56,7 +56,7 @@ export function Intro({ d }: { d: any }) {
         </motion.div>
 
         {/* GROOM | BRIDE labels */}
-        <motion.div variants={fSlideLeft} initial="hidden" animate="visible" viewport={marginConfig} custom={1.6}
+        <motion.div variants={fSlideLeft} initial="hidden" whileInView="visible" viewport={marginConfig} custom={1.6}
           style={{ width: '100%', maxWidth: 320, display: 'flex', alignItems: 'center', justifyContent: 'space-between', borderTop: '1px solid #4b5563', borderBottom: '1px solid #4b5563', padding: '12px 0', marginBottom: 24 }}>
           <span style={{ flex: 1, textAlign: 'center', fontSize: 20, letterSpacing: '0.4em', color: OLIVE }}>GROOM</span>
           <div style={{ width: 1, height: 16, background: '#4b5563', margin: '0 8px' }} />
@@ -64,18 +64,18 @@ export function Intro({ d }: { d: any }) {
         </motion.div>
 
         {/* Groom name */}
-        <motion.div variants={fSlideRight} initial="hidden" animate="visible" viewport={marginConfig} custom={1.7}
+        <motion.div variants={fSlideRight} initial="hidden" whileInView="visible" viewport={marginConfig} custom={1.7}
           className="text-[1.8rem] sm:text-[2.5rem]"
           style={{ width: '100%', textAlign: 'center', fontFamily: FONT_SCRIPT, color: OLIVE, lineHeight: 1.2, marginTop: 16, whiteSpace: 'normal' }}>
           {d.groomName || shortName(d.groomInfo?.name) || 'Trung Đức'}
         </motion.div>
 
         {/* Heart divider */}
-        <motion.img variants={fZoomIn} initial="hidden" animate="visible" viewport={marginConfig} custom={1.8}
+        <motion.img variants={fZoomIn} initial="hidden" whileInView="visible" viewport={marginConfig} custom={1.8}
           src={A.heartwithline} alt="divider" style={{ width: 72, objectFit: 'contain', margin: '16px 0' }} />
 
         {/* Bride name */}
-        <motion.div variants={fSlideLeft} initial="hidden" animate="visible" viewport={marginConfig} custom={1.9}
+        <motion.div variants={fSlideLeft} initial="hidden" whileInView="visible" viewport={marginConfig} custom={1.9}
           className="text-[1.8rem] sm:text-[2.5rem]"
           style={{ width: '100%', textAlign: 'center', fontFamily: FONT_SCRIPT, color: OLIVE, lineHeight: 1.2, marginBottom: 24, whiteSpace: 'normal' }}>
           {d.brideName || shortName(d.brideInfo?.name) || 'Ngọc Thảo'}
