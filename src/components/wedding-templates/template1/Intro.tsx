@@ -39,7 +39,7 @@ export function Intro({ d }: { d: any }) {
             {/* Overlay content */}
             <div style={{ position: 'absolute', bottom: 12, left: 0, right: 0, display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', textAlign: 'center', zIndex: 10, gap: 8 }}>
               <motion.img variants={fRotateIn} custom={1.9} src={A.flowerwithheart} alt="flower" style={{ width: 200, height: 200, objectFit: 'contain', filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.4))' }} />
-              <motion.p variants={fSlideLeft} custom={2.0} style={{ fontStyle: 'italic', fontFamily: FONT_SANS, fontSize: 15, color: '#fff', padding: '0 20px', textShadow: '0 1px 4px rgba(0,0,0,0.8)' }}>
+              <motion.p variants={fSlideLeft} custom={2.0} style={{ fontFamily: "'Playfair Display', Georgia, serif", fontStyle: 'italic', fontSize: 18, lineHeight: 1.5, color: '#fff', padding: '0 20px', textShadow: '0 1px 4px rgba(0,0,0,0.8)' }}>
                 {d.intro?.description || "It's been a long time, see you at the wedding!"}
               </motion.p>
               <motion.p variants={fSlideRight} custom={2.1} style={{ fontWeight: 700, fontSize: 14, letterSpacing: '0.2em', color: '#fff', textShadow: '0 1px 4px rgba(0,0,0,0.8)' }}>
@@ -65,7 +65,8 @@ export function Intro({ d }: { d: any }) {
 
         {/* Groom name */}
         <motion.div variants={fSlideRight} initial="hidden" animate="visible" viewport={marginConfig} custom={1.7}
-          style={{ width: '100%', textAlign: 'center', fontSize: '2.5rem', fontFamily: FONT_SCRIPT, color: OLIVE, lineHeight: 1.2, marginTop: 16, whiteSpace: 'normal' }}>
+          className="text-[1.8rem] sm:text-[2.5rem]"
+          style={{ width: '100%', textAlign: 'center', fontFamily: FONT_SCRIPT, color: OLIVE, lineHeight: 1.2, marginTop: 16, whiteSpace: 'normal' }}>
           {d.groomName || shortName(d.groomInfo?.name) || 'Trung Đức'}
         </motion.div>
 
@@ -75,7 +76,8 @@ export function Intro({ d }: { d: any }) {
 
         {/* Bride name */}
         <motion.div variants={fSlideLeft} initial="hidden" animate="visible" viewport={marginConfig} custom={1.9}
-          style={{ width: '100%', textAlign: 'center', fontSize: '2.5rem', fontFamily: FONT_SCRIPT, color: OLIVE, lineHeight: 1.2, marginBottom: 24, whiteSpace: 'normal' }}>
+          className="text-[1.8rem] sm:text-[2.5rem]"
+          style={{ width: '100%', textAlign: 'center', fontFamily: FONT_SCRIPT, color: OLIVE, lineHeight: 1.2, marginBottom: 24, whiteSpace: 'normal' }}>
           {d.brideName || shortName(d.brideInfo?.name) || 'Ngọc Thảo'}
         </motion.div>
       </div>

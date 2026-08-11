@@ -52,7 +52,7 @@ export const OLIVE_MID = '#9DA68E'
 export const OLIVE_BTN = '#5C7053'
 export const FONT_SCRIPT = "'Dancing Script', cursive, 'Georgia', serif"
 export const FONT_SERIF = "'Playfair Display', Georgia, serif"
-export const FONT_SANS = "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif"
+export const FONT_SANS = "'Plus Jakarta Sans', sans-serif"
 
 export const fVariants: any = {
   hidden: { opacity: 0, y: 30 },

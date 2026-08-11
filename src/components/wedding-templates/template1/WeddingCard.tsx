@@ -94,7 +94,7 @@ export function WeddingCard({ d }: { d: any }) {
       {/* WEDDING title + photo */}
       <section style={{ width: '100%', padding: '0 32px', display: 'flex', flexDirection: 'column', alignItems: 'center', maxWidth: 550 }}>
         <motion.h1 variants={fSlideLeft} initial="hidden" whileInView="visible" viewport={marginConfig} custom={0.1}
-          style={{ fontSize: 48, fontWeight: 600, letterSpacing: '0.2em', color: OLIVE, marginBottom: 32, textTransform: 'uppercase' }}>WEDDING</motion.h1>
+          style={{ fontFamily: "'Great Vibes', cursive", fontSize: 64, fontWeight: 400, color: OLIVE, marginBottom: 32 }}>Wedding</motion.h1>
 
         <motion.div variants={fSlideRight} initial="hidden" whileInView="visible" viewport={marginConfig} custom={0.2}
           style={{ width: '100%', display: 'flex', justifyContent: 'space-between', fontSize: 14, letterSpacing: '0.15em', fontWeight: 300, color: OLIVE, textTransform: 'uppercase', marginBottom: 48, whiteSpace: 'nowrap' }}>
@@ -216,7 +216,7 @@ export function WeddingCard({ d }: { d: any }) {
 
             {(weddingType === 'all' || weddingType === 'groom') && (
               <div style={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 4 }}>
-                <a href={`tel:${d.groomPhone || d.groomInfo?.phone || ''}`} className="text-xs sm:text-sm" style={{ display: 'block', background: OLIVE_BTN, color: '#fff', padding: 6, borderRadius: 9999, textTransform: 'uppercase', letterSpacing: '0.05em', fontFamily: FONT_SANS, textAlign: 'center', textDecoration: 'none', boxShadow: '0 2px 4px rgba(0,0,0,0.15)', width: '100%', maxWidth: 200, whiteSpace: 'nowrap' }}>
+                <a href={`tel:${d.groomPhone || d.groomInfo?.phone || ''}`} className="text-xs sm:text-sm" style={{ display: 'inline-block', background: OLIVE_BTN, color: '#fff', padding: '6px 16px', borderRadius: 9999, textTransform: 'uppercase', letterSpacing: '0.05em', fontFamily: FONT_SANS, textAlign: 'center', textDecoration: 'none', boxShadow: '0 2px 4px rgba(0,0,0,0.15)', whiteSpace: 'nowrap' }}>
                   Gọi ngay chú rể
                 </a>
               </div>
@@ -224,7 +224,7 @@ export function WeddingCard({ d }: { d: any }) {
 
             {(weddingType === 'all' || weddingType === 'bride') && (
               <div style={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 4 }}>
-                <a href={`tel:${d.bridePhone || d.brideInfo?.phone || ''}`} className="text-xs sm:text-sm" style={{ display: 'block', background: OLIVE_BTN, color: '#fff', padding: 6, borderRadius: 9999, textTransform: 'uppercase', letterSpacing: '0.05em', fontFamily: FONT_SANS, textAlign: 'center', textDecoration: 'none', boxShadow: '0 2px 4px rgba(0,0,0,0.15)', width: '100%', maxWidth: 200, whiteSpace: 'nowrap' }}>
+                <a href={`tel:${d.bridePhone || d.brideInfo?.phone || ''}`} className="text-xs sm:text-sm" style={{ display: 'inline-block', background: OLIVE_BTN, color: '#fff', padding: '6px 16px', borderRadius: 9999, textTransform: 'uppercase', letterSpacing: '0.05em', fontFamily: FONT_SANS, textAlign: 'center', textDecoration: 'none', boxShadow: '0 2px 4px rgba(0,0,0,0.15)', whiteSpace: 'nowrap' }}>
                   Gọi ngay cô dâu
                 </a>
               </div>
