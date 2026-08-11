@@ -20,18 +20,12 @@ export const A = {
   background: '/template_1/background.webp',
   arrow: '/template_1/arrow.svg',
   gift: '/template_1/gift.webp',
-  couplering: '/template_1/couplering.webp',
   flowerwithheart: '/template_1/flowerwithheart.svg',
   heartwithline: '/template_1/heartwithline.svg',
   gotmarried: '/template_1/wegotmarried.svg',
-  couplename: '/template_1/couplename.svg',
-  attendance: '/template_1/attendance.webp',
-  gromename: '/template_1/gromename.webp',
-  bridename: '/template_1/bridename.webp',
   ringwithflower: '/template_1/ringwithflower.svg',
   twinrose: '/template_1/twinrose.svg',
   twinlaurel: '/template_1/twinlaurel.svg',
-  weddingday: '/template_1/weddingday.svg',
   image1: '/bride_groom/15.webp',
   image2: '/bride_groom/16.webp',
   image3: '/bride_groom/11.webp',
@@ -43,7 +37,6 @@ export const A = {
   image10: '/bride_groom/2.webp',
   image11: '/bride_groom/18.webp',
   image12: '/bride_groom/13.webp',
-  image13: '/template_1/image6370.webp',
 }
 
 export const OLIVE = '#4A5D45'

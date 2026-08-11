@@ -10,7 +10,7 @@ import { CoupleInfo } from './template1/CoupleInfo'
 import { WeddingDay } from './template1/WeddingDay'
 import { Memory } from './template1/Memory'
 import { WeddingForm } from './template1/WeddingForm'
-import { RedDoorOpening } from './RedDoorOpening'
+import { EnvelopeOpening } from './EnvelopeOpening'
 import { A, OLIVE, OLIVE_BG, FONT_SANS } from './template1/shared'
 
 type InviteType = 'chung' | 'nhaTrai' | 'nhaGai'
@@ -81,16 +81,13 @@ export default function Template1({ weddingData }: { weddingData: any }) {
 
   return (
     <>
-      {/* Overlay cửa mở — luôn render trên cùng, tự xóa sau khi animation xong */}
-      <RedDoorOpening
+      {/* Overlay phong bì mở thiệp — luôn render trên cùng, tự xóa sau khi animation xong */}
+      <EnvelopeOpening
         onOpen={handleOpen}
         skipOpening={!!d.previewMode}
-        groomName={d.groomInfo?.name || d.groomName || 'Trung Đức'}
-        brideName={d.brideInfo?.name || d.brideName || 'Ngọc Thảo'}
-        doorColor="#E6F0E3"
-        textColor={OLIVE}
-        sealText="/template_1/hy_calligraphy.webp"
-        sealSize={135}
+        groomName={d.groomInfo?.name || d.groomName}
+        brideName={d.brideInfo?.name || d.brideName}
+        d={d}
       />
 
       <div style={{ width: '100%', background: 'transparent', display: 'flex', justifyContent: 'center', border: 'none', overflowX: 'hidden' }}>

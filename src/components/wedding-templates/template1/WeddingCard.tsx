@@ -262,7 +262,7 @@ export function WeddingCard({ d }: { d: any }) {
 
               const mapContent = (
                 <img
-                  src={d.mapImage || A.image13}
+                  src={d.mapImage || A.image1}
                   alt="Map Location"
                   style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                 />
