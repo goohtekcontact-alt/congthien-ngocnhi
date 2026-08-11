@@ -6,13 +6,13 @@ import { ConfigProvider, App as AntdApp } from 'antd'
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://congthien-ngocnhi.vercel.app'),
-  title: 'Thiệp cưới Công Thiện ❤️ Ngọc Nhi',
+  title: 'Công Thiện ❤️ Ngọc Nhi',
   description: 'Trân trọng kính mời quý khách đến chung vui và chứng kiến khoảnh khắc hạnh phúc nhất trong ngày trọng đại của Công Thiện & Ngọc Nhi. Sự hiện diện của quý vị là niềm vinh hạnh lớn lao cho gia đình chúng tôi!',
   openGraph: {
-    title: 'Thiệp cưới Công Thiện ❤️ Ngọc Nhi',
+    title: 'Công Thiện ❤️ Ngọc Nhi',
     description: 'Trân trọng kính mời quý khách đến chung vui và chứng kiến khoảnh khắc hạnh phúc nhất trong ngày trọng đại của Công Thiện & Ngọc Nhi. Sự hiện diện của quý vị là niềm vinh hạnh lớn lao cho gia đình chúng tôi!',
     url: 'https://congthien-ngocnhi.vercel.app/',
-    siteName: 'Thiệp cưới Công Thiện & Ngọc Nhi',
+    siteName: 'Công Thiện & Ngọc Nhi',
 
     locale: 'vi_VN',
     type: 'website',

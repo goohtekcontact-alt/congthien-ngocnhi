@@ -60,7 +60,7 @@ export async function generateMetadata(
   parent: ResolvingMetadata
 ): Promise<Metadata> {
   const guestName = guestMap[params.guestSlug] || 'Quý khách';
-  const title = `Thiệp cưới Công Thiện ❤️ Ngọc Nhi - Kính mời ${guestName}`;
+  const title = `Công Thiện ❤️ Ngọc Nhi - Kính mời ${guestName}`;
   const description = `Thân mời ${guestName} đến chung vui và chứng kiến khoảnh khắc hạnh phúc nhất trong ngày trọng đại của Công Thiện & Ngọc Nhi. Sự hiện diện của bạn là niềm vinh hạnh lớn lao cho gia đình chúng tôi!`;
   
   return {
@@ -70,7 +70,7 @@ export async function generateMetadata(
       title,
       description,
       url: `https://congthien-ngocnhi.vercel.app/${params.guestSlug}`,
-      siteName: 'Thiệp cưới Công Thiện & Ngọc Nhi',
+      siteName: 'Công Thiện & Ngọc Nhi',
 
       locale: 'vi_VN',
       type: 'website',

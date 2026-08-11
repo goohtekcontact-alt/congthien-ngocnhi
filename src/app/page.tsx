@@ -41,6 +41,7 @@ function getWeddingData() {
       motherName: 'Maria Trần Thị Ánh Nguyệt',
       city: 'Tân Hội, An Giang',
       address: 'SN 174, Tổ 8, Ấp Tân Long, Xã Tân Hội, Tỉnh An Giang',
+      phone: '0358915420',
     },
     brideInfo: {
       name: 'Têrêsa Phạm Thị Ngọc Nhi',
@@ -48,6 +49,7 @@ function getWeddingData() {
       motherName: 'Maria Nguyễn Thị Kim Ánh',
       city: 'Thạnh Đông, An Giang',
       address: 'SN 311, Ấp kinh 8B, Xã Thạnh Đông, Tỉnh An Giang',
+      phone: '0786868855',
     },
     bankInfo: [],
   };

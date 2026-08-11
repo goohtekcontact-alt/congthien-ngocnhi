@@ -121,14 +121,15 @@ export function WeddingCard({ d }: { d: any }) {
       {/* Invitation card */}
       <section style={{ width: '100%', padding: '12px 32px', display: 'flex', flexDirection: 'column', alignItems: 'center', maxWidth: 500 }}>
         <motion.div variants={fVariants} initial="hidden" whileInView="visible" viewport={marginConfig} custom={0.1}
-          style={{ textAlign: 'center', fontSize: 21, letterSpacing: '0.1em', color: OLIVE, textTransform: 'uppercase' }}>
+          className="text-[15px] sm:text-[21px]"
+          style={{ textAlign: 'center', letterSpacing: '0.05em', color: OLIVE, textTransform: 'uppercase', whiteSpace: 'nowrap', width: '120%', marginLeft: '-10%' }}>
           <p>Thiệp mời cưới của chúng mình</p>
-          <p style={{ fontWeight: 300, fontStyle: 'italic', textTransform: 'none' }}>Trân trọng kính mời</p>
+          <p style={{ fontWeight: 300, fontStyle: 'italic', textTransform: 'none', whiteSpace: 'normal', marginTop: 4 }}>Trân trọng kính mời</p>
         </motion.div>
 
         {/* Guest name placeholder */}
         <motion.div variants={fImgVariants} initial="hidden" whileInView="visible" viewport={marginConfig} custom={0.2}
-          style={{ width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: 96, fontFamily: FONT_SCRIPT, fontSize: '3rem', color: OLIVE, lineHeight: 1.2, textAlign: 'center', margin: '8px 0' }}>
+          style={{ width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: 96, fontFamily: FONT_SCRIPT, fontSize: '2.5rem', color: OLIVE, lineHeight: 1.2, textAlign: 'center', margin: '8px 0' }}>
           {d.guestName || 'Bạn Trang và anh Nam'}
         </motion.div>
 
@@ -184,9 +185,8 @@ export function WeddingCard({ d }: { d: any }) {
         {/* Location */}
         <motion.div variants={fVariants} initial="hidden" whileInView="visible" viewport={marginConfig} custom={0.4}
           style={{ width: '100%', fontSize: 21, textAlign: 'center', marginBottom: 40 }}>
-          <p style={{ fontFamily: FONT_SANS, fontStyle: 'italic', color: OLIVE }}>Tại</p>
           <h3 style={{ fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: OLIVE }}>
-            {d.locationVenueText || d.location?.venue || 'Tân Phong, Bình Xuyên, Vĩnh Phúc'}
+            TẠI {d.locationVenueText || d.location?.venue || 'Tân Phong, Bình Xuyên, Vĩnh Phúc'}
           </h3>
           <p style={{ fontStyle: 'italic', color: OLIVE, lineHeight: 1.6, maxWidth: 600, margin: '0 auto' }}>
             {d.locationAddressText || d.location?.address || 'Số nhà 06, đường Bầu Rậm, TDP. Thích Chung, Bình Xuyên, Vĩnh Phúc'}
