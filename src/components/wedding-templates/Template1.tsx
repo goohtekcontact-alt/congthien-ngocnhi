@@ -29,7 +29,10 @@ export default function Template1({ weddingData }: { weddingData: any }) {
 
   // Khi người dùng bấm Mở Thiệp
   const handleOpen = () => {
-    setIsAutoScrolling(true)
+    // Đợi 1200ms cho thiệp mở xong và bỏ overflow: hidden rồi mới bắt đầu cuộn
+    setTimeout(() => {
+      setIsAutoScrolling(true)
+    }, 1200)
 
     // Lách Chrome: Có thao tác click thật rồi, ta chỉ việc "gọi" nút bật nhạc bên góc là loa sẽ kêu
     const playBtn = document.querySelector('button[aria-label="Bật nhạc"]') as HTMLButtonElement
@@ -55,8 +58,7 @@ export default function Template1({ weddingData }: { weddingData: any }) {
     let animationFrameId: number;
 
     const scrollStep = () => {
-      document.documentElement.scrollTop += 2;
-      document.body.scrollTop += 2;
+      window.scrollBy(0, 1.5);
       animationFrameId = requestAnimationFrame(scrollStep);
     };
 

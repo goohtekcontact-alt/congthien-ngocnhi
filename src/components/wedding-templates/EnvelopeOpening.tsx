@@ -171,7 +171,7 @@ export function EnvelopeOpening({
         </svg>
 
         {/* GOLD WAX SEAL & CLICK HAND PROMPT */}
-        <div className="absolute top-[74%] left-1/2 -translate-x-1/2 -translate-y-1/2 z-30 flex flex-col items-center">
+        <div className="absolute top-[68%] left-1/2 -translate-x-1/2 -translate-y-1/2 z-30 flex flex-col items-center">
           <motion.button
             onClick={handleOpenClick}
             whileHover={{ scale: 1.08 }}
@@ -184,7 +184,7 @@ export function EnvelopeOpening({
               repeat: Infinity,
               ease: 'easeInOut',
             }}
-            className="relative w-12 h-12 sm:w-16 sm:h-16 rounded-full focus:outline-none cursor-pointer drop-shadow-xl"
+            className="relative w-16 h-16 sm:w-20 sm:h-20 rounded-full focus:outline-none cursor-pointer drop-shadow-xl"
             aria-label="Mở thiệp cưới"
           >
             <img
@@ -214,7 +214,7 @@ export function EnvelopeOpening({
             <img
               src="/IMAGE_NGON_TAY.png"
               alt="Tap hand"
-              className="w-12 h-12 sm:w-15 sm:h-15 object-contain filter drop-shadow-[0_2px_6px_rgba(0,0,0,0.3)]"
+              className="w-14 h-14 sm:w-16 sm:h-16 object-contain filter drop-shadow-[0_2px_6px_rgba(0,0,0,0.3)]"
             />
           </motion.div>
         </div>
