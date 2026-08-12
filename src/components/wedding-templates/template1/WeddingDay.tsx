@@ -7,24 +7,10 @@ import { InlineEdit } from '../../ui/InlineEdit'
 export function WeddingDay({ d }: { d?: any }) {
   const em = d?.editMode
   
-  // Trích xuất ngày từ chuỗi văn bản do người dùng nhập (VD: "29/11", "Ngày 29", "29-11")
-  const dateStr = d?.calendarDateText || 'Thứ Bảy, 03/10/2026';
-  const matchFull = dateStr.match(/\b([1-3]?[0-9])[\/\-\s]+(1[0-2]|0?[1-9])(?:[\/\-\s]+(\d{2,4}))?\b/);
-  let daysInMonth = 30;
-  let weddingDay = '29';
-  let month = 11;
-  let year = 2026;
-
-  if (matchFull) {
-    weddingDay = matchFull[1];
-    month = parseInt(matchFull[2], 10);
-    year = matchFull[3] ? parseInt(matchFull[3], 10) : new Date().getFullYear();
-    if (year < 100) year += 2000;
-    daysInMonth = new Date(year, month, 0).getDate();
-  } else {
-    const matchDay = dateStr.match(/\b([1-3]?[0-9])\b/);
-    if (matchDay) weddingDay = matchDay[1];
-  }
+  let weddingDay = d?.date?.dayNumber || '03';
+  let month = d?.date?.month ? parseInt(d.date.month, 10) : 10;
+  let year = d?.date?.year ? parseInt(d.date.year, 10) : 2026;
+  let daysInMonth = new Date(year, month, 0).getDate();
 
   // Calculate start day offset (Monday = 0, ..., Sunday = 6)
   const firstDay = new Date(year, month - 1, 1).getDay();
@@ -51,7 +37,7 @@ export function WeddingDay({ d }: { d?: any }) {
            <span style={{ width: 32, height: 1, backgroundColor: 'currentColor' }}></span>
         </div>
 
-        <p style={{ fontFamily: FONT_SERIF, fontSize: '0.9rem', fontStyle: 'italic', lineHeight: 1.65, marginTop: 24, textAlign: 'center', maxWidth: 448 }}>
+        <p style={{ fontFamily: FONT_SERIF, fontSize: '0.9rem', lineHeight: 1.65, marginTop: 24, textAlign: 'center', maxWidth: 448 }}>
           Thương một, để sau mỗi năm lại thương lên mười.<br/>
           Em có anh ở trong đời, anh có em, là được rồi
         </p>
@@ -94,8 +80,8 @@ export function WeddingDay({ d }: { d?: any }) {
 
         <div style={{ marginTop: 24, fontFamily: FONT_SERIF, textAlign: 'center' }}>
           <p style={{ fontSize: '1.05rem', fontWeight: 500, lineHeight: 1.4, margin: 0 }}>
-            <InlineEdit value={d?.calendarDateText || 'Thứ Bảy, 03/10/2026'} editMode={em} onChange={(v: any) => d?.onFieldChange?.('calendarDateText', v)} /><br/>
-            <InlineEdit value={d?.calendarTimeText || 'Nhằm Ngày 22 THÁNG 8 NĂM BÍNH NGỌ | 11:00 AM'} editMode={em} onChange={(v: any) => d?.onFieldChange?.('calendarTimeText', v)} />
+            <InlineEdit value={(d?.calendarDateText || 'Thứ Bảy, 03/10/2026').normalize('NFC')} editMode={em} onChange={(v: any) => d?.onFieldChange?.('calendarDateText', v)} /><br/>
+            <InlineEdit value={(d?.calendarTimeText || 'Nhằm Ngày 22 THÁNG 8 NĂM BÍNH NGỌ | 11:00 AM').normalize('NFC')} editMode={em} onChange={(v: any) => d?.onFieldChange?.('calendarTimeText', v)} />
           </p>
         </div>
 

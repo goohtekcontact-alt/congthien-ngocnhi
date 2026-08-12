@@ -72,11 +72,7 @@ export function WeddingCard({ d }: { d: any }) {
       ? 'tư gia nhà gái'
       : 'nhà hàng trống đồng'
 
-  const directionLabel = weddingType === 'groom'
-    ? 'Đường về nhà trai'
-    : weddingType === 'bride'
-      ? 'Đường về nhà gái'
-      : 'Địa điểm tổ chức'
+  const directionLabel = d.directionLabel || 'Điểm tổ chức hôn lễ'
 
   const ceremonyLabel = weddingType === 'groom'
     ? 'Tại gia đình nhà trai'
@@ -124,7 +120,7 @@ export function WeddingCard({ d }: { d: any }) {
           className="text-[15px] sm:text-[21px]"
           style={{ textAlign: 'center', letterSpacing: '0.05em', color: OLIVE, textTransform: 'uppercase', whiteSpace: 'nowrap', width: '120%', marginLeft: '-10%' }}>
           <p>Thiệp mời cưới của chúng mình</p>
-          <p style={{ fontWeight: 300, fontStyle: 'italic', textTransform: 'none', whiteSpace: 'normal', marginTop: 4 }}>Trân trọng kính mời</p>
+          <p style={{ fontWeight: 300, textTransform: 'none', whiteSpace: 'normal', marginTop: 4 }}>Trân trọng kính mời</p>
         </motion.div>
 
         {/* Guest name placeholder */}
@@ -174,7 +170,7 @@ export function WeddingCard({ d }: { d: any }) {
                 {d.dateYearText || `Năm ${year}`}
               </span>
             </div>
-            <p style={{ marginTop: 32, fontStyle: 'italic', fontSize: 13, fontWeight: 300, opacity: 0.8 }}>
+            <p style={{ marginTop: 32, fontSize: 13, fontWeight: 300, opacity: 0.8 }}>
               {d.dateLunarText || `(Nhằm Ngày 22 THÁNG 8 NĂM BÍNH NGỌ)`}
             </p>
             
@@ -185,10 +181,10 @@ export function WeddingCard({ d }: { d: any }) {
         {/* Location */}
         <motion.div variants={fVariants} initial="hidden" whileInView="visible" viewport={marginConfig} custom={0.4}
           style={{ width: '100%', fontSize: 21, textAlign: 'center', marginBottom: 40 }}>
-          <h3 style={{ fontFamily: "'Great Vibes', cursive", fontSize: 48, fontWeight: 400, letterSpacing: '2px', color: OLIVE, marginBottom: 12, lineHeight: 1.2 }}>
+          <h3 style={{ fontFamily: FONT_SERIF, fontSize: 32, letterSpacing: '0.1em', fontWeight: 500, textTransform: 'uppercase', color: OLIVE, marginBottom: 12 }}>
             {d.locationVenueText || (d.weddingType === 'groom' ? 'Lễ Tân Hôn' : 'Lễ Vu Quy')}
           </h3>
-          <p style={{ fontStyle: 'italic', color: OLIVE, lineHeight: 1.6, maxWidth: 600, margin: '0 auto' }}>
+          <p style={{ color: OLIVE, lineHeight: 1.6, maxWidth: 600, margin: '0 auto' }}>
             {d.locationAddressText || d.location?.address || 'Số nhà 06, đường Bầu Rậm, TDP. Thích Chung, Bình Xuyên, Vĩnh Phúc'}
           </p>
         </motion.div>
@@ -208,8 +204,8 @@ export function WeddingCard({ d }: { d: any }) {
               <motion.img variants={fSlideLeft} custom={0.6} src={A.arrow} alt="arrow" className="w-[80px] sm:w-[120px]" style={{ maxWidth: '100%', objectFit: 'contain', transform: 'translateY(-16px)' }} />
             </div>
 
-            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: 4, width: '100%', overflow: 'visible', marginLeft: -100 }}>
-              <a href={d.mapUrl || d.mapLink || 'https://maps.google.com/maps?q=S%E1%BB%91+nh%C3%A0+06,+%C4%91%C6%B0%E1%BB%9Dng+B%E1%BA%A7u+R%E1%BA%ADm,+TDP.+Th%C3%ADch+Chung,+B%C3%ACnh+Xuy%C3%AAn,+V%C4%A9nh+Ph%C3%BAc'} target="_blank" style={{ fontStyle: 'italic', color: OLIVE, textDecoration: 'none', whiteSpace: 'nowrap' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: 4, width: '100%', overflow: 'visible', marginLeft: -120 }}>
+              <a href={d.mapUrl || d.mapLink || 'https://maps.google.com/maps?q=S%E1%BB%91+nh%C3%A0+06,+%C4%91%C6%B0%E1%BB%9Dng+B%E1%BA%A7u+R%E1%BA%ADm,+TDP.+Th%C3%ADch+Chung,+B%C3%ACnh+Xuy%C3%AAn,+V%C4%A9nh+Ph%C3%BAc'} target="_blank" className="text-[13px] sm:text-[14px]" style={{ color: OLIVE, textDecoration: 'none', whiteSpace: 'nowrap', maxWidth: 140, textAlign: 'left', lineHeight: 1.3 }}>
                 {directionLabel}
               </a>
             </div>
@@ -292,7 +288,7 @@ export function WeddingCard({ d }: { d: any }) {
             <span>{day}.{month}.{year}</span>
           </div>
 
-          <p style={{ marginTop: 4, fontStyle: 'italic', fontSize: 20, color: OLIVE, fontFamily: FONT_SANS }}>
+          <p style={{ marginTop: 4, fontSize: 20, color: OLIVE, fontFamily: FONT_SANS }}>
             {d.ceremony?.venue || ceremonyLabel}
           </p>
         </motion.div>

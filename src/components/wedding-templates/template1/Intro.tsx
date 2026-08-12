@@ -39,7 +39,7 @@ export function Intro({ d }: { d: any }) {
             {/* Overlay content */}
             <div style={{ position: 'absolute', bottom: 12, left: 0, right: 0, display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', textAlign: 'center', zIndex: 10, gap: 8 }}>
               <motion.img variants={fRotateIn} custom={1.9} src={A.flowerwithheart} alt="flower" style={{ width: 200, height: 200, objectFit: 'contain', filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.4))' }} />
-              <motion.p variants={fSlideLeft} custom={2.0} style={{ fontFamily: "'Playfair Display', Georgia, serif", fontStyle: 'italic', fontSize: 18, lineHeight: 1.5, color: '#fff', padding: '0 20px', textShadow: '0 1px 4px rgba(0,0,0,0.8)' }}>
+              <motion.p variants={fSlideLeft} custom={2.0} style={{ fontFamily: "'Playfair Display', Georgia, serif", fontSize: 18, lineHeight: 1.5, color: '#fff', padding: '0 20px', textShadow: '0 1px 4px rgba(0,0,0,0.8)' }}>
                 {d.intro?.description || "It's been a long time, see you at the wedding!"}
               </motion.p>
               <motion.p variants={fSlideRight} custom={2.1} style={{ fontWeight: 700, fontSize: 14, letterSpacing: '0.2em', color: '#fff', textShadow: '0 1px 4px rgba(0,0,0,0.8)' }}>

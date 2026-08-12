@@ -78,7 +78,7 @@ export function WeddingForm({ d }: { d: any }) {
         <motion.h2 variants={fVariants} initial="hidden" whileInView="visible" viewport={marginConfig} custom={0.2}
           style={{ fontSize: 28, letterSpacing: '0.1em', fontWeight: 500, marginBottom: 4 }}>XÁC NHẬN THAM DỰ</motion.h2>
         <motion.p variants={fVariants} initial="hidden" whileInView="visible" viewport={marginConfig} custom={0.3}
-          style={{ fontStyle: 'italic', fontSize: 14, color: OLIVE, marginBottom: 40 }}>Bạn sẽ tham dự chứ?</motion.p>
+          style={{ fontSize: 14, color: OLIVE, marginBottom: 40 }}>Bạn sẽ tham dự chứ?</motion.p>
 
         {/* Radio options */}
         {weddingType === 'all' ? (
@@ -87,7 +87,7 @@ export function WeddingForm({ d }: { d: any }) {
             {['Nhất định mình sẽ tham dự nhà trai', 'Nhất định mình sẽ tham dự nhà gái', 'Tiếc quá, mình không tham dự được'].map((label, i) => (
               <label key={i} style={{ display: 'flex', alignItems: 'center', gap: 12, cursor: 'pointer' }}>
                 <input type="radio" name="attend" style={{ width: 20, height: 20, accentColor: OLIVE_BG }} onChange={() => setAttendance(i < 2 ? 'yes' : 'no')} />
-                <span style={{ fontStyle: 'italic', fontSize: 15 }}>{label}</span>
+                <span style={{ fontSize: 15 }}>{label}</span>
               </label>
             ))}
           </motion.div>
@@ -96,13 +96,13 @@ export function WeddingForm({ d }: { d: any }) {
             style={{ width: '100%', display: 'flex', flexDirection: 'column', gap: 16, marginBottom: 32 }}>
             <label style={{ display: 'flex', alignItems: 'center', gap: 12, cursor: 'pointer' }}>
               <input type="radio" name="attend" style={{ width: 20, height: 20, accentColor: OLIVE_BG }} onChange={() => setAttendance('yes')} />
-              <span style={{ fontStyle: 'italic', fontSize: 15 }}>
+              <span style={{ fontSize: 15 }}>
                 {weddingType === 'groom' ? 'Nhất định mình sẽ tham dự nhà trai' : 'Nhất định mình sẽ tham dự nhà gái'}
               </span>
             </label>
             <label style={{ display: 'flex', alignItems: 'center', gap: 12, cursor: 'pointer' }}>
               <input type="radio" name="attend" style={{ width: 20, height: 20, accentColor: OLIVE_BG }} onChange={() => setAttendance('no')} />
-              <span style={{ fontStyle: 'italic', fontSize: 15 }}>Tiếc quá, mình không tham dự được</span>
+              <span style={{ fontSize: 15 }}>Tiếc quá, mình không tham dự được</span>
             </label>
           </motion.div>
         )}
@@ -119,12 +119,12 @@ export function WeddingForm({ d }: { d: any }) {
                 style={{ width: '100%', overflow: 'hidden', marginBottom: 40 }}
               >
                 <div style={{ paddingTop: 4 }}>
-                  <p style={{ fontStyle: 'italic', fontSize: 15, color: OLIVE, marginBottom: 8 }}>Số lượng người tham dự</p>
+                  <p style={{ fontSize: 15, color: OLIVE, marginBottom: 8 }}>Số lượng người tham dự</p>
                   <input
                     type="text"
                     value={guestCount}
                     onChange={(e) => setGuestCount(e.target.value)}
-                    style={{ width: '100%', border: '1px solid #d1d5db', borderRadius: 6, padding: '8px 16px', fontStyle: 'italic', color: '#6b7280', outline: 'none', fontSize: 15 }}
+                    style={{ width: '100%', border: '1px solid #d1d5db', borderRadius: 6, padding: '8px 16px', color: '#6b7280', outline: 'none', fontSize: 15 }}
                   />
                 </div>
               </motion.div>
@@ -149,7 +149,7 @@ export function WeddingForm({ d }: { d: any }) {
       {false && (
       <section style={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
         <h2 style={{ fontSize: 28, letterSpacing: '0.1em', fontWeight: 500, marginBottom: 16 }}>HỘP MỪNG CƯỚI</h2>
-        <p style={{ fontStyle: 'italic', fontSize: 14, color: OLIVE, lineHeight: 1.6, maxWidth: 280, marginBottom: 40 }}>
+        <p style={{ fontSize: 14, color: OLIVE, lineHeight: 1.6, maxWidth: 280, marginBottom: 40 }}>
           Cảm ơn tình cảm của mọi người đã dành cho chúng mình.
         </p>
 
@@ -191,7 +191,7 @@ export function WeddingForm({ d }: { d: any }) {
                 </button>
               )}
               <img src={A.gift} alt="Gift" style={{ width: '100%', height: '100%', objectFit: 'contain', marginBottom: 16 }} />
-              <h3 style={{ position: 'absolute', bottom: 6, fontSize: 14, color: '#fff', fontStyle: 'italic' }}>Nhà gái</h3>
+              <h3 style={{ position: 'absolute', bottom: 6, fontSize: 14, color: '#fff' }}>Nhà gái</h3>
             </motion.div>
           )}
 
@@ -232,7 +232,7 @@ export function WeddingForm({ d }: { d: any }) {
                 </button>
               )}
               <img src={A.gift} alt="Gift" style={{ width: '100%', height: '100%', objectFit: 'contain', marginBottom: 16 }} />
-              <h3 style={{ position: 'absolute', bottom: 6, fontSize: 14, color: '#fff', fontStyle: 'italic' }}>Nhà trai</h3>
+              <h3 style={{ position: 'absolute', bottom: 6, fontSize: 14, color: '#fff' }}>Nhà trai</h3>
             </motion.div>
           )}
         </div>
@@ -300,7 +300,7 @@ export function WeddingForm({ d }: { d: any }) {
               </div>
             )}
 
-            <div style={{ marginTop: 14, fontSize: 12, color: '#bbb', fontStyle: 'italic' }}>
+            <div style={{ marginTop: 14, fontSize: 12, color: '#bbb' }}>
               Nhấn ra ngoài để đóng
             </div>
           </div>
@@ -349,7 +349,7 @@ export function WeddingForm({ d }: { d: any }) {
                     {label}
                     {key === 'bankId' && (
                       <a href="https://api.vietqr.io/v2/banks" target="_blank" rel="noreferrer"
-                        style={{ marginLeft: 8, fontSize: 11, color: '#60a5fa', textDecoration: 'underline' }}>
+                        style={{ marginLeft: 8, fontSize: 11, color: '#60a5fa', textDecoration: 'none' }}>
                         Tra cứu mã
                       </a>
                     )}
