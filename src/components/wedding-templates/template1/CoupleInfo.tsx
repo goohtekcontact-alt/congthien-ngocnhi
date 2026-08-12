@@ -87,7 +87,7 @@ export function CoupleInfo({ d }: { d: any }) {
               <div style={{ width: '100%', marginBottom: 4, fontFamily: FONT_SCRIPT, fontSize: '1.6rem', color: OLIVE, lineHeight: 1.2, wordWrap: 'break-word' }}>
                 <InlineEdit value={d.brideName || shortName(d.brideInfo?.name) || 'Ngọc Thảo'} editMode={em} onChange={(v: any) => d?.onFieldChange?.('brideName', v)} />
               </div>
-              <div className="text-[10px] sm:text-[11px]" style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center', background: OLIVE_BG, color: '#fff', width: '100%', borderRadius: 12, textAlign: 'center', boxShadow: '0 2px 4px rgba(0,0,0,0.12)', padding: '6px 2px', whiteSpace: 'normal', lineHeight: 1.4, letterSpacing: '-0.2px' }}>
+              <div className="text-[11px] sm:text-[12px]" style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center', background: OLIVE_BG, color: '#fff', width: '100%', borderRadius: 9999, textAlign: 'center', boxShadow: '0 2px 4px rgba(0,0,0,0.12)', padding: '8px 4px', whiteSpace: 'normal', lineHeight: 1.4, letterSpacing: '-0.2px' }}>
                 <p style={{ marginBottom: 4 }}>Bố: <InlineEdit value={d.brideInfo?.fatherName || 'Nguyễn Văn Thuẫn'} editMode={em} onChange={(v: any) => d?.onFieldChange?.('brideInfo.fatherName', v)} /></p>
                 <p>Mẹ: <InlineEdit value={d.brideInfo?.motherName || 'Nguyễn Thị Phượng'} editMode={em} onChange={(v: any) => d?.onFieldChange?.('brideInfo.motherName', v)} /></p>
               </div>
@@ -98,7 +98,7 @@ export function CoupleInfo({ d }: { d: any }) {
               <div style={{ width: '100%', marginBottom: 4, fontFamily: FONT_SCRIPT, fontSize: '1.6rem', color: OLIVE, lineHeight: 1.2, wordWrap: 'break-word' }}>
                 <InlineEdit value={d.groomName || shortName(d.groomInfo?.name) || 'Trung Đức'} editMode={em} onChange={(v: any) => d?.onFieldChange?.('groomName', v)} />
               </div>
-              <div className="text-[10px] sm:text-[11px]" style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center', background: OLIVE_BG, color: '#fff', width: '100%', borderRadius: 12, textAlign: 'center', boxShadow: '0 2px 4px rgba(0,0,0,0.12)', padding: '6px 2px', whiteSpace: 'normal', lineHeight: 1.4, letterSpacing: '-0.2px' }}>
+              <div className="text-[11px] sm:text-[12px]" style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center', background: OLIVE_BG, color: '#fff', width: '100%', borderRadius: 9999, textAlign: 'center', boxShadow: '0 2px 4px rgba(0,0,0,0.12)', padding: '8px 4px', whiteSpace: 'normal', lineHeight: 1.4, letterSpacing: '-0.2px' }}>
                 <p style={{ marginBottom: 4 }}>Bố: <InlineEdit value={d.groomInfo?.fatherName || 'Đặng Văn Đạt'} editMode={em} onChange={(v: any) => d?.onFieldChange?.('groomInfo.fatherName', v)} /></p>
                 <p>Mẹ: <InlineEdit value={d.groomInfo?.motherName || 'Phạm Thị Luyến'} editMode={em} onChange={(v: any) => d?.onFieldChange?.('groomInfo.motherName', v)} /></p>
               </div>

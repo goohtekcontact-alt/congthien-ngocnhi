@@ -84,9 +84,9 @@ export function WeddingCard({ d }: { d: any }) {
       ? 'Tại gia đình nhà gái'
       : 'Tại nhà hàng trống đồng'
 
-  const ceremonyTitle = d.ceremony?.title || (weddingType === 'bride'
-    ? 'Lễ Vu Quy Được Tổ Chức'
-    : 'Lễ Thành Hôn Được Tổ Chức')
+  const ceremonyTitle = d.ceremony?.title || (weddingType === 'groom'
+    ? 'Lễ Tân Hôn Được Tổ Chức'
+    : 'Lễ Vu Quy Được Tổ Chức')
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%', fontFamily: FONT_SANS, color: OLIVE }}>
@@ -175,7 +175,7 @@ export function WeddingCard({ d }: { d: any }) {
               </span>
             </div>
             <p style={{ marginTop: 32, fontStyle: 'italic', fontSize: 13, fontWeight: 300, opacity: 0.8 }}>
-              {d.dateLunarText || `(Nhằm Ngày 23 THÁNG 8 NĂM BÍNH NGỌ)`}
+              {d.dateLunarText || `(Nhằm Ngày 22 THÁNG 8 NĂM BÍNH NGỌ)`}
             </p>
             
             <CountdownTimer targetDate={targetDate} />
@@ -185,8 +185,8 @@ export function WeddingCard({ d }: { d: any }) {
         {/* Location */}
         <motion.div variants={fVariants} initial="hidden" whileInView="visible" viewport={marginConfig} custom={0.4}
           style={{ width: '100%', fontSize: 21, textAlign: 'center', marginBottom: 40 }}>
-          <h3 style={{ fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: OLIVE }}>
-            TẠI {d.locationVenueText || d.location?.venue || 'Tân Phong, Bình Xuyên, Vĩnh Phúc'}
+          <h3 style={{ fontFamily: "'Great Vibes', cursive", fontSize: 48, fontWeight: 400, letterSpacing: '2px', color: OLIVE, marginBottom: 12, lineHeight: 1.2 }}>
+            {d.locationVenueText || (d.weddingType === 'groom' ? 'Lễ Tân Hôn' : 'Lễ Vu Quy')}
           </h3>
           <p style={{ fontStyle: 'italic', color: OLIVE, lineHeight: 1.6, maxWidth: 600, margin: '0 auto' }}>
             {d.locationAddressText || d.location?.address || 'Số nhà 06, đường Bầu Rậm, TDP. Thích Chung, Bình Xuyên, Vĩnh Phúc'}

@@ -12,17 +12,23 @@ export function WeddingDay({ d }: { d?: any }) {
   const matchFull = dateStr.match(/\b([1-3]?[0-9])[\/\-\s]+(1[0-2]|0?[1-9])(?:[\/\-\s]+(\d{2,4}))?\b/);
   let daysInMonth = 30;
   let weddingDay = '29';
+  let month = 11;
+  let year = 2026;
 
   if (matchFull) {
     weddingDay = matchFull[1];
-    const month = parseInt(matchFull[2], 10);
-    let year = matchFull[3] ? parseInt(matchFull[3], 10) : new Date().getFullYear();
+    month = parseInt(matchFull[2], 10);
+    year = matchFull[3] ? parseInt(matchFull[3], 10) : new Date().getFullYear();
     if (year < 100) year += 2000;
     daysInMonth = new Date(year, month, 0).getDate();
   } else {
     const matchDay = dateStr.match(/\b([1-3]?[0-9])\b/);
     if (matchDay) weddingDay = matchDay[1];
   }
+
+  // Calculate start day offset (Monday = 0, ..., Sunday = 6)
+  const firstDay = new Date(year, month - 1, 1).getDay();
+  const startOffset = firstDay === 0 ? 6 : firstDay - 1;
   return (
     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%', maxWidth: 500, margin: '0 auto', fontFamily: FONT_SANS, padding: '48px 16px' }}>
       <motion.div variants={fImgVariants} initial="hidden" whileInView="visible" viewport={marginConfig} custom={0.2}
@@ -56,8 +62,11 @@ export function WeddingDay({ d }: { d?: any }) {
               {day}
             </span>
           ))}
+          {Array.from({ length: startOffset }, (_, i) => (
+            <span key={`empty-${i}`} />
+          ))}
           {Array.from({ length: daysInMonth }, (_, i) => String(i + 1)).map((date, index) => {
-            const isWeddingDay = date === weddingDay;
+            const isWeddingDay = parseInt(date, 10) === parseInt(weddingDay, 10);
             return (
               <span
                 key={`${date}-${index}`}
@@ -86,7 +95,7 @@ export function WeddingDay({ d }: { d?: any }) {
         <div style={{ marginTop: 24, fontFamily: FONT_SERIF, textAlign: 'center' }}>
           <p style={{ fontSize: '1.05rem', fontWeight: 500, lineHeight: 1.4, margin: 0 }}>
             <InlineEdit value={d?.calendarDateText || 'Thứ Bảy, 03/10/2026'} editMode={em} onChange={(v: any) => d?.onFieldChange?.('calendarDateText', v)} /><br/>
-            <InlineEdit value={d?.calendarTimeText || 'Nhằm Ngày 23 THÁNG 8 NĂM BÍNH NGỌ | 11:00 AM'} editMode={em} onChange={(v: any) => d?.onFieldChange?.('calendarTimeText', v)} />
+            <InlineEdit value={d?.calendarTimeText || 'Nhằm Ngày 22 THÁNG 8 NĂM BÍNH NGỌ | 11:00 AM'} editMode={em} onChange={(v: any) => d?.onFieldChange?.('calendarTimeText', v)} />
           </p>
         </div>
 

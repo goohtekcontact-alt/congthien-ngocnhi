@@ -25,7 +25,7 @@ export default function Template1({ weddingData }: { weddingData: any }) {
   const [isAutoScrolling, setIsAutoScrolling] = useState(false)
   const [hasOpened, setHasOpened] = useState(false)
 
-  const d = { ...d0, weddingType: inviteToWedding(inviteType) }
+  const d = { ...d0, weddingType: d0.weddingType || inviteToWedding(inviteType) }
 
   // Khi người dùng bấm Mở Thiệp
   const handleOpen = () => {

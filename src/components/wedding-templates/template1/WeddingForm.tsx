@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 import { message } from 'antd'
 import { A, OLIVE, OLIVE_BG, FONT_SANS, FONT_SERIF, fVariants, fImgVariants, marginConfig, fZoomIn, fSlideLeft, fRotateIn } from './shared'
 
@@ -20,8 +20,30 @@ export function WeddingForm({ d }: { d: any }) {
     try {
       setIsSubmitting(true)
 
-      // Mock request for static site
-      await new Promise(resolve => setTimeout(resolve, 800))
+      // URL Web App của Google Apps Script. 
+      // Có thể cấu hình ở đây hoặc truyền qua biến d.googleSheetUrl
+      const scriptURL = d.googleSheetUrl || 'https://script.google.com/macros/s/AKfycbzZevFhIpP6Uzk6KSVcLqiF1qpCG8owesZ-FGAfOcq4ru7pCzdI3acaMs23MHEwsn6e/exec' 
+
+      if (!scriptURL) {
+        // Mock request nếu chưa cấu hình Google Sheet
+        await new Promise(resolve => setTimeout(resolve, 800))
+        message.success('Cảm ơn bạn đã xác nhận tham dự! (Bản dùng thử chưa gắn link Sheet)')
+        return
+      }
+
+      const formData = new FormData()
+      formData.append('Tên khách mời', d.guestName || 'Khách vãng lai')
+      formData.append('Sẽ tham dự', attendance === 'yes' ? 'Có' : 'Không')
+      formData.append('Số lượng', guestCount)
+      formData.append('Loại thiệp', weddingType === 'groom' ? 'Nhà Trai' : (weddingType === 'bride' ? 'Nhà Gái' : 'Chung'))
+      formData.append('Thời gian gửi', new Date().toLocaleString('vi-VN'))
+
+      await fetch(scriptURL, { 
+        method: 'POST', 
+        body: formData,
+        mode: 'no-cors' // Google Apps Script yêu cầu no-cors đối với form
+      })
+
       message.success('Cảm ơn bạn đã xác nhận tham dự!')
     } catch (error) {
       console.error(error)
@@ -86,15 +108,28 @@ export function WeddingForm({ d }: { d: any }) {
         )}
 
         {/* Guest count */}
-        <motion.div variants={fVariants} initial="hidden" whileInView="visible" viewport={marginConfig} custom={0.5}
-          style={{ width: '100%', marginBottom: 40 }}>
-          <p style={{ fontStyle: 'italic', fontSize: 15, color: OLIVE, marginBottom: 8 }}>Số lượng người tham dự</p>
-          <input
-            type="text"
-            value={guestCount}
-            onChange={(e) => setGuestCount(e.target.value)}
-            style={{ width: '100%', border: '1px solid #d1d5db', borderRadius: 6, padding: '8px 16px', fontStyle: 'italic', color: '#6b7280', outline: 'none', fontSize: 15 }}
-          />
+        <motion.div variants={fVariants} initial="hidden" whileInView="visible" viewport={marginConfig} custom={0.5} style={{ width: '100%' }}>
+          <AnimatePresence>
+            {attendance !== 'no' && (
+              <motion.div
+                initial={{ opacity: 0, height: 0 }}
+                animate={{ opacity: 1, height: 'auto' }}
+                exit={{ opacity: 0, height: 0 }}
+                transition={{ duration: 0.3 }}
+                style={{ width: '100%', overflow: 'hidden', marginBottom: 40 }}
+              >
+                <div style={{ paddingTop: 4 }}>
+                  <p style={{ fontStyle: 'italic', fontSize: 15, color: OLIVE, marginBottom: 8 }}>Số lượng người tham dự</p>
+                  <input
+                    type="text"
+                    value={guestCount}
+                    onChange={(e) => setGuestCount(e.target.value)}
+                    style={{ width: '100%', border: '1px solid #d1d5db', borderRadius: 6, padding: '8px 16px', fontStyle: 'italic', color: '#6b7280', outline: 'none', fontSize: 15 }}
+                  />
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </motion.div>
 
         <motion.button variants={fVariants} initial="hidden" whileInView="visible" viewport={marginConfig} custom={0.6}

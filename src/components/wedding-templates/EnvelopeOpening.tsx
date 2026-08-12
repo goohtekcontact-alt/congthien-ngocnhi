@@ -53,14 +53,14 @@ export function EnvelopeOpening({
 
   // Extract photo & names
   const photos = d.photos || {}
-  const couplePhoto = photos['image6367'] || d.coupleImage || '/bride_groom/13.webp'
+  const couplePhoto = d.coupleImage || '/bride_groom/19.webp'
 
   const groomShort = (d.groomShort || 'CÔNG THIỆN').toUpperCase()
   const brideShort = (d.brideShort || 'NGỌC NHI').toUpperCase()
 
   // Format dates or fallback
-  const brideDateText = d.brideDateText || 'NHÀ GÁI: 23.08.2026'
-  const groomDateText = d.groomDateText || 'NHÀ TRAI: 23.08.2026'
+  const brideDateText = d.brideDateText || 'NHÀ GÁI: 03.10.2026'
+  const groomDateText = d.groomDateText || 'NHÀ TRAI: 04.10.2026'
 
   return (
     <motion.div
@@ -138,13 +138,15 @@ export function EnvelopeOpening({
               delay: 1.4, // Starts smoothly right after flap finishes flipping open
               ease: [0.16, 1, 0.3, 1], // Luxurious smooth inertia ease
             }}
-            className="w-[220px] sm:w-[265px] bg-white p-2.5 sm:p-3 shadow-[0_20px_45px_rgba(0,0,0,0.35)] rounded-sm border border-gray-100 pointer-events-auto"
+            className="w-[220px] sm:w-[265px] bg-white p-1.5 sm:p-2 shadow-[0_20px_45px_rgba(0,0,0,0.35)] rounded-sm border border-gray-100 pointer-events-auto"
+            style={{ backfaceVisibility: 'hidden', transform: 'translateZ(0)' }}
           >
-            <div className="w-full aspect-[4/5] overflow-hidden rounded-xs bg-gray-100">
+            <div className="w-full aspect-[4/5] overflow-hidden rounded-xs bg-gray-100" style={{ transform: 'translateZ(0)' }}>
               <img
                 src={couplePhoto}
                 alt="Couple"
                 className="w-full h-full object-cover"
+                style={{ transform: 'translateZ(0)', backfaceVisibility: 'hidden' }}
               />
             </div>
           </motion.div>
