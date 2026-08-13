@@ -56,6 +56,11 @@ function getWeddingData() {
       address: 'SN 311, Ấp kinh 8B, Xã Thạnh Đông, Tỉnh An Giang',
       phone: '0786868855',
     },
+    story1: 'Tháng 8 — tháng của những cơn mưa,\ncũng là tháng mở đầu cho câu chuyện tình yêu của chúng mình.\n\nChúng mình gặp nhau lần đầu tiên ở một nơi thật đặc biệt — nhà thờ, sau một Thánh lễ Chúa nhật.\n\nChẳng ai biết rằng, giữa biết bao người qua lại, cuộc gặp gỡ rất đỗi bình thường ấy lại là khởi đầu cho một hành trình thật đẹp.',
+    story2: 'Rồi những buổi hẹn đầu tiên cứ thế nối tiếp nhau.\nVà thật lạ, hầu như cuộc hẹn nào cũng có mưa.\n\nCó lẽ ông trời đã vô tình viết thêm một chút lãng mạn cho câu chuyện của chúng mình — để những ngày đầu bên nhau luôn có tiếng mưa rơi, có những đoạn đường cùng đi, và có hai người dần trở nên thân thuộc.',
+    loveQuote: 'Sau hai tháng tìm hiểu, chúng mình chính thức gọi tên mối quan hệ ấy là tình yêu.\n\nTừ những buổi hẹn dưới mưa, những cuộc trò chuyện chẳng biết bao giờ mới hết, đến những ngày cùng nhau chia sẻ niềm vui, nỗi buồn và cả những điều rất nhỏ trong cuộc sống…\nChúng mình nhận ra rằng, điều đẹp nhất không phải là tìm được một người hoàn hảo, mà là tìm được một người muốn cùng mình bước tiếp.',
+    memoryQuote: 'Và rồi, thật trùng hợp cũng thật nhiệm màu…\n\nNgày kỷ niệm một năm chúng mình quen nhau\nlại chính là ngày chúng mình về chung một nhà.\n\nMột năm không quá dài, nhưng đủ để chúng mình hiểu rằng:\ngiữa rất nhiều người trên thế giới này, chúng mình đã gặp được nhau, yêu thương nhau và chọn nhau.',
+    weddingQuote: 'Từ một cuộc gặp sau Thánh lễ Chúa nhật,\nqua những ngày hẹn hò dưới mưa,\nchúng mình đã đi đến ngày hôm nay —\nngày bắt đầu một hành trình mới, cùng nhau trong tình yêu và trong Chúa.\n\nCảm ơn vì tháng 8 năm ấy đã mang chúng mình đến gần nhau.\nCảm ơn những cơn mưa đã trở thành ký ức thật đẹp.\nVà trên hết, chúng mình biết ơn Chúa vì đã cho hai trái tim gặp được nhau đúng lúc.\n\nTừ hôm nay, chúng mình không còn chỉ là hai người yêu nhau.\nChúng mình là gia đình.\n\nNgọc Nhi & Công Thiện\n03-04.10.2026',
     bankInfo: [],
   };
 }

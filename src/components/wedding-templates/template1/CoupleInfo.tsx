@@ -110,7 +110,7 @@ export function CoupleInfo({ d }: { d: any }) {
           <div style={{ width: '100%', textAlign: 'center', padding: '0 24px' }}>
             <p style={{ fontFamily: "'Playfair Display', Georgia, serif", fontSize: 18, color: OLIVE, lineHeight: 1.5, textAlign: 'center' }}>
               <InlineEdit
-                value={d.story1 || 'Gửi đến bạn tấm thiệp cưới đầy yêu thương.\nBởi những ai nhận được lời mời này đều là những người\nđặc biệt và quan trọng với bọn mình.\n\nNgày vui của chúng mình sẽ trọn vẹn hơn\nkhi có bạn và gia đình cùng hiện diện,\ncùng chia sẻ niềm vui trong khoảnh khắc thật ý nghĩa này.'}
+                value={d.story1 || 'Tháng 8 — tháng của những cơn mưa,\ncũng là tháng mở đầu cho câu chuyện tình yêu của chúng mình.\n\nChúng mình gặp nhau lần đầu tiên ở một nơi thật đặc biệt — nhà thờ, sau một Thánh lễ Chúa nhật.\n\nChẳng ai biết rằng, giữa biết bao người qua lại, cuộc gặp gỡ rất đỗi bình thường ấy lại là khởi đầu cho một hành trình thật đẹp.'}
                 editMode={em}
                 multiline
                 onChange={(v: any) => d?.onFieldChange?.('story1', v)}
@@ -139,7 +139,7 @@ export function CoupleInfo({ d }: { d: any }) {
           style={{ width: '100%', textAlign: 'center', padding: '0 24px' }}>
           <p style={{ fontFamily: "'Playfair Display', Georgia, serif", fontSize: 18, color: OLIVE, lineHeight: 1.5, textAlign: 'center' }}>
             <InlineEdit
-              value={d.story2 || 'Tụi mình rất mong được gặp bạn,\ncùng nâng ly, cùng cười thật nhiều\nvà lưu lại những khoảnh khắc thật đẹp bên nhau.\n\nHẹn gặp bạn trong ngày chúng mình về chung một nhà! 🤍'}
+              value={d.story2 || 'Rồi những buổi hẹn đầu tiên cứ thế nối tiếp nhau.\nVà thật lạ, hầu như cuộc hẹn nào cũng có mưa.\n\nCó lẽ ông trời đã vô tình viết thêm một chút lãng mạn cho câu chuyện của chúng mình — để những ngày đầu bên nhau luôn có tiếng mưa rơi, có những đoạn đường cùng đi, và có hai người dần trở nên thân thuộc.'}
               editMode={em}
               multiline
               onChange={(v: any) => d?.onFieldChange?.('story2', v)}
@@ -164,11 +164,15 @@ export function CoupleInfo({ d }: { d: any }) {
            style={{ fontFamily: "'Playfair Display', Georgia, serif", fontSize: 18, lineHeight: 1.5, display: 'flex', flexDirection: 'column', gap: 16, width: '100%', justifyContent: 'center', alignItems: 'center', textAlign: 'center', padding: '80px 24px', boxSizing: 'border-box' }}>
           <h1 style={{ fontFamily: "'Great Vibes', cursive", fontSize: 68, fontWeight: 400, color: OLIVE }}>I Love You</h1>
           <motion.img variants={fRotateIn} custom={0.6} src={A.heartwithline} alt="heart" style={{ width: 75, height: 75, objectFit: 'contain' }} />
-          {d.loveQuote || (<>
-            Mình chẳng có những buổi hẹn hò cầu kì chỉ là cùng nhau ăn<br />
-            một bữa cơm, đi dạo quanh phố, kể chuyện linh tinh đến<br />
-            khuya. Nhưng hóa ra, hạnh phúc đôi khi chỉ cần giản dị vậy thôi
-          </>)}
+          <div style={{ width: '100%', textAlign: 'center', padding: '0 24px' }}>
+            <InlineEdit
+              value={d.loveQuote || 'Sau hai tháng tìm hiểu, chúng mình chính thức gọi tên mối quan hệ ấy là tình yêu.\n\nTừ những buổi hẹn dưới mưa, những cuộc trò chuyện chẳng biết bao giờ mới hết, đến những ngày cùng nhau chia sẻ niềm vui, nỗi buồn và cả những điều rất nhỏ trong cuộc sống…\nChúng mình nhận ra rằng, điều đẹp nhất không phải là tìm được một người hoàn hảo, mà là tìm được một người muốn cùng mình bước tiếp.'}
+              editMode={em}
+              multiline
+              onChange={(v: any) => d?.onFieldChange?.('loveQuote', v)}
+              style={{ textAlign: 'center', width: '100%', display: 'block', whiteSpace: 'pre-line' }}
+            />
+          </div>
         </motion.div>
 
         <motion.div variants={fSlideRight} initial="hidden" whileInView="visible" viewport={marginConfig} custom={0.6} style={{ width: '100%' }}>

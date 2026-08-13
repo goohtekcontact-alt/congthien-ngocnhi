@@ -93,7 +93,8 @@ export function WeddingCard({ d }: { d: any }) {
           style={{ fontFamily: "'Great Vibes', cursive", fontSize: 64, fontWeight: 400, color: OLIVE, marginBottom: 32 }}>Wedding</motion.h1>
 
         <motion.div variants={fSlideRight} initial="hidden" whileInView="visible" viewport={marginConfig} custom={0.2}
-          style={{ width: '100%', display: 'flex', justifyContent: 'space-between', fontSize: 14, letterSpacing: '0.15em', fontWeight: 300, color: OLIVE, textTransform: 'uppercase', marginBottom: 48, whiteSpace: 'nowrap' }}>
+          className="text-[15px] sm:text-[20px]"
+          style={{ width: '100%', display: 'flex', justifyContent: 'space-between', letterSpacing: '0.18em', fontWeight: 500, color: OLIVE, textTransform: 'uppercase', marginBottom: 48, whiteSpace: 'nowrap' }}>
           <span>FALL IN</span><span>LOVE</span><span>WEDDING</span>
         </motion.div>
 

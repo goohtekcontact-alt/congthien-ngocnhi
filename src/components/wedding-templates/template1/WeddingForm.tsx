@@ -38,12 +38,15 @@ export function WeddingForm({ d }: { d: any }) {
       formData.append('Loại thiệp', weddingType === 'groom' ? 'Nhà Trai' : (weddingType === 'bride' ? 'Nhà Gái' : 'Chung'))
       formData.append('Thời gian gửi', new Date().toLocaleString('vi-VN'))
 
-      // Gửi ngầm (fire-and-forget) không đợi phản hồi để giao diện cập nhật ngay lập tức
+      // Gửi ngầm (fire-and-forget)
       fetch(scriptURL, { 
         method: 'POST', 
         body: formData,
-        mode: 'no-cors' // Google Apps Script yêu cầu no-cors đối với form
+        mode: 'no-cors'
       }).catch(err => console.error('Lỗi khi gửi ngầm:', err))
+
+      // Giữ trạng thái "Đang gửi..." một chút (600ms) để người dùng có cảm giác hệ thống đang xử lý
+      await new Promise(resolve => setTimeout(resolve, 600))
 
       message.success('Cảm ơn bạn đã xác nhận tham dự!')
     } catch (error) {
