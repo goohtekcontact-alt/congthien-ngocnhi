@@ -18,10 +18,10 @@ export function Intro({ d }: { d: any }) {
         {/* YOU ARE / THE LOVE OF / MY LIFE */}
         <motion.div variants={fSlideLeft} initial="hidden" animate="visible" viewport={marginConfig} custom={1.6}
           className="text-[14px] sm:text-[18px]"
-          style={{ width: '100%', display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '4px 12px', letterSpacing: '0.15em', fontWeight: 500, fontFamily: FONT_SANS, color: OLIVE, textAlign: 'center' }}>
-          <span>{d.intro?.title1 || 'YOU ARE'}</span>
-          <span>{d.intro?.title2 || 'THE LOVE OF'}</span>
-          <span>{d.intro?.title3 || 'MY LIFE'}</span>
+          style={{ width: '100%', letterSpacing: '0.15em', fontWeight: 500, fontFamily: FONT_SANS, color: OLIVE, textAlign: 'center', textWrap: 'balance', lineHeight: 1.6 }}>
+          <span style={{ display: 'inline-block', margin: '0 8px' }}>{d.intro?.title1 || 'YOU ARE'}</span>
+          <span style={{ display: 'inline-block', margin: '0 8px' }}>{d.intro?.title2 || 'THE LOVE OF'}</span>
+          <span style={{ display: 'inline-block', margin: '0 8px' }}>{d.intro?.title3 || 'MY LIFE'}</span>
         </motion.div>
 
         {/* WE GOT MARRIED text image */}

@@ -24,7 +24,7 @@ export function Memory({ d }: { d: any }) {
       </motion.div>
 
       <motion.div variants={fVariants} initial="hidden" whileInView="visible" viewport={marginConfig} custom={0.2}
-        style={{ fontFamily: "'Playfair Display', Georgia, serif", fontSize: 18, lineHeight: 1.5, padding: '40px 24px', display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', width: '100%', boxSizing: 'border-box' }}>
+        style={{ fontFamily: "'Playfair Display', Georgia, serif", fontSize: 15, lineHeight: 1.5, padding: '40px 24px', display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', width: '100%', boxSizing: 'border-box', textWrap: 'pretty' }}>
         <InlineEdit
           value={d.memoryQuote || 'Tụi mình đã cùng nhau chọn từng bông hoa, từng bộ trang phục cho ngày ấy. Mỗi chi tiết nhỏ đều mang trong đó một chút hồi hộp, một chút háo hức, và rất nhiều yêu thương'}
           editMode={em}
@@ -53,7 +53,7 @@ export function Memory({ d }: { d: any }) {
         <div className="text-[28px] sm:text-[40px]" style={{ display: 'flex', justifyContent: 'space-around', width: '100%', fontFamily: "'Great Vibes', cursive" }}>
           <div>Sweet</div><div>Wedding</div><div>Invitation</div>
         </div>
-        <p style={{ fontFamily: "'Playfair Display', Georgia, serif", textAlign: 'center', fontSize: 18, lineHeight: 1.5, paddingTop: 16, width: '100%' }}>
+        <p style={{ fontFamily: "'Playfair Display', Georgia, serif", textAlign: 'center', fontSize: 15, lineHeight: 1.5, paddingTop: 16, width: '100%', textWrap: 'pretty' }}>
           <InlineEdit
             value={d.weddingQuote || 'Ngày mình chính thức gọi nhau là vợ chồng là ngày câu truyện nhỏ của hai đứa bước sang một chương mới. Cảm ơn vì đã tìm thấy nhau, và chọn ở lại - mãi mãi'}
             editMode={em}
